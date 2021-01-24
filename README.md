@@ -25,9 +25,9 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
-asset link image[Image](./images/image.jpg)
-http raw link image[Image](http://muxiangchen.com/images/image.jpg)
-https raw link image[Image](https://muxiangchen.com/images/image.jpg)
+asset link image ![Image](./images/image.jpg)
+http raw link image ![Image](http://muxiangchen.com/images/image.jpg)
+https raw link image ![Image](https://muxiangchen.com/images/image.jpg)
 
 <!--http://muxiangchen.com/images/image.jpg-->
 
