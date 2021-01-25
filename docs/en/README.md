@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /favicon.png
-heroText: 教你们学数学
+heroText: 课外知识
 tagline: 这里有课上讲过的习题，详细内容，都在这里
 actionText: 快速上手 →
 actionLink: /zh/guide/

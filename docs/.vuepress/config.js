@@ -25,8 +25,8 @@ module.exports = {
         sidebar: 'auto',
         displayAllHeaders: true,
         locales: {
-            '/en': {
-                lang: 'en-US', // 将会被设置为 <html> 的 lang 属性
+            '/en/': {
+                lang: 'en-US',
                 title: "Jasmine's blog",
                 description: 'a long path.',
                 selectText: 'Languages',
@@ -40,42 +40,40 @@ module.exports = {
                     }
                 },
                 algolia: {},
+                /*
                 nav: [
-                    { text: 'nest', link: '/codelearn/', ariaLabel: 'Nested' }
+                    { text: '数学', link: '/en/codelearn/', ariaLabel: 'Nested' }
                 ],
                 sidebar: {
-                    '/codelearn': [{
+                    '/en/codelearn': [{
                             title: '勾股定理', // 必要的
-                            path: '/codelearn/vue', // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                            path: '/en/codelearn/vue', // 可选的, 标题的跳转链接，应为绝对路径且必须存在
                             collapsable: true, // 可选的, 默认值是 true,
                             sidebarDepth: 1, // 可选的, 默认值是 1
                             children: [
-                                ['/codelearn/vue/vue1', '教程1']
+                                ['/en/codelearn/vue/vue1', '第一个公式']
                             ]
                         },
                         {
                             title: 'ios教程', // 必要的
-                            path: '/codelearn/ios', // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                            path: '/en/codelearn/ios', // 可选的, 标题的跳转链接，应为绝对路径且必须存在
                             collapsable: true, // 可选的, 默认值是 true,
                             sidebarDepth: 1, // 可选的, 默认值是 1
                             children: [
-                                ['/codelearn/ios/1', '1']
+                                ['/en/codelearn/ios/1', '1']
                             ]
                         }
                     ]
                 }
+                */
             },
             '/': {
                 lang: 'zh-CN',
                 title: '穆相臣@博客',
                 description: '好好看，好好学',
-                // 多语言下拉菜单的标题
                 selectText: '选择语言',
-                // 该语言在下拉菜单中的标签
                 label: '简体中文',
-                // 编辑链接文字
                 editLinkText: '在 GitHub 上编辑此页',
-                // Service Worker 的配置
                 serviceWorker: {
                     updatePopup: {
                         message: "发现新内容可用.",
@@ -85,35 +83,54 @@ module.exports = {
                 // 当前 locale 的 algolia docsearch 选项
                 algolia: {},
                 nav: [
-                    { text: '数学', link: '/codelearn/' }
+                    { text: '创意和想法', link: '/idea/' },
+                    { text: '开发日志', link: '/devlog/' },
+                    { text: '小教程', link: '/codelearn/' },
+
                 ],
                 sidebar: {
-                    '/codelearn': [{
-                            title: '勾股定理', // 必要的
-                            path: '/codelearn/vue', // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-                            collapsable: true, // 可选的, 默认值是 true,
-                            sidebarDepth: 1, // 可选的, 默认值是 1
+                    '/codelearn/': [{
+                            title: 'Vue.js',
+                            path: '/codelearn/vue',
+                            collapsable: true,
+                            sidebarDepth: 1,
                             children: [
-                                ['/codelearn/vue/vue1', '教程1']
+                                '/codelearn/vue/vue1'
                             ]
                         },
                         {
-                            title: 'ios教程', // 必要的
-                            path: '/codelearn/ios', // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-                            collapsable: true, // 可选的, 默认值是 true,
-                            sidebarDepth: 1, // 可选的, 默认值是 1
+                            title: 'iOS',
+                            path: '/codelearn/ios',
+                            collapsable: true,
+                            sidebarDepth: 1,
                             children: [
-                                ['/codelearn/ios/1', '1']
+                                '/codelearn/ios/1'
                             ]
                         }
-                    ]
+                    ],
+                    '/devlog/': [{
+                        title: '应用',
+                        path: '/devlog/apps',
+                        collapsable: true,
+                        sidebarDepth: 1,
+                        children: [
+                            '/devlog/apps/socialapp'
+                        ]
+                    }],
+                    '/idea/': [{
+                        title: '应用',
+                        path: '/idea/apps',
+                        collapsable: true,
+                        sidebarDepth: 1,
+                        children: [
+                            '/idea/apps/personalsite'
+                        ]
+                    }]
                 }
             }
         }
     },
     locales: {
-        // 键名是该语言所属的子路径
-        // 作为特例，默认语言可以使用 '/' 作为其路径。
         '/en/': {
             lang: 'en-US', // 将会被设置为 <html> 的 lang 属性
             title: "Jasmine's blog",
