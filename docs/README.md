@@ -1,53 +1,18 @@
-## Welcome to GitHub Pages
+---
+home: true
+heroImage: /favicon.png
+heroText: 我叫穆相臣，很高兴认识你
+tagline: 来世ではちゃんとします
+actionText: 站点开源在Github →
+actionLink: https://github.com/MuXiangChen/muxiangchen.github.io
+features:
+- title: 创意和想法
+  details: 我会把一些灵感和想法记录到这里，大部分都是一些设计思路
+- title: 开发日志
+  details: 今后我会为每个项目建立一个日志，记录从开始到结局的过程，其中有0-1的，也有0-0的，希望我的日志可以给你提供一些帮助。
+- title: 一些小教程
+  details: 有教无类，我把我会的，和我学会的东西，写到这里，供大家学习，如果有错误的地方，可以到本站点的Github提交分支进行修改。
+footer:  GPL-3.0 Licensed | Copyright © 2021-present XiangChen Mu 转载请注明出处。
+---
 
-You can use the [editor on GitHub](https://github.com/MuXiangChen/muxiangchen.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-asset link image [Image](./image.jpg)
-http raw link image [Image](http://muxiangchen.com/images/image.jpg)
-https raw link image [Image](https://muxiangchen.com/images/image.jpg)
-
-ss
-
-
-![20210125095041](img.muxiangchen.com/382cb6b091a89a764f65c2008be78083.png)
-![20210125095506](muxiangchen-img.oss-cn-beijing.aliyuncs.com/382cb6b091a89a764f65c2008be78083.png)
-![20210125095804](https://muxiangchen-img.oss-cn-beijing.aliyuncs.com/382cb6b091a89a764f65c2008be78083.png)
-
-![20210125100215](https://muxiangchen-img.oss-cn-beijing.aliyuncs.com/42664345d7c0d8d6c12d06daa710cae3.png)
-
-
-
-<!--http://muxiangchen.com/images/image.jpg-->
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/MuXiangChen/muxiangchen.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+` 我，没什么好介绍的，创业者（无业游民）`
