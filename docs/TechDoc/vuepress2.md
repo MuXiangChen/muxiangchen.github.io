@@ -1,6 +1,6 @@
 # Vue Press 2的坑和记录
 
-使用github ci自动化部署,文档不知道在扯些什么东西，反正这么搞就对了
+使用github action自动化部署（坑太多了实在是）
 
 ``` yml
 # name 可以自定义
