@@ -1,7 +1,7 @@
 const { defaultTheme } = require("vuepress");
 
 module.exports = {
-    base: '/3D-Reconstruction-Doc/',
+    base: '/',
     head: [['link', { rel: 'icon', href: '/images/heroicon.png' }]],
     markdown: {
       lineNumbers:true,
