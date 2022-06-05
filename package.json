@@ -1,0 +1,15 @@
+{
+  "name": "muxiangchen.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MuXiangChen/muxiangchen.github.io.git",
+  "author": "Jasmine Mo <loxluthor@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.46"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
