@@ -5,13 +5,13 @@ heroText: 穆相臣的博客
 tagline: 
 actions:
   - text: 技术文档
-    link: /devlog/README.md
+    link: /TechDoc/README.md
     type: primary
   - text: 简历
-    link: /core/README.md
+    link: https://www.baidu.com
     type: secondary
   - text: 产品链接
-    link: /core/README.md
+    link: https://www.baidu.com
     type: secondary
 
 footer: 作者-穆相臣
