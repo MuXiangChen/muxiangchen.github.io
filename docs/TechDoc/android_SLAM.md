@@ -210,10 +210,10 @@ pipline-waitfornextframe()
 
 ```
 
-### vuc摄像头
+### UVC串流
 
 ```
-opencv - 读取摄像头流
+opencv - 读取摄像头流-zed 2i
 ```
 
 
