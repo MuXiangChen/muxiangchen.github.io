@@ -34,6 +34,7 @@ module.exports = {
                 children: [
                     '/TechDoc/slam.md', 
                     '/TechDoc/vuepress2.md', 
+                    '/TechDoc/android_SLAM.md', 
                 ],
               },
             ],
