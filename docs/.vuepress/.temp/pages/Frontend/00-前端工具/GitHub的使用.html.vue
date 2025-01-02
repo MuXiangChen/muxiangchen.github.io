@@ -1,4 +1,4 @@
-<template><div><h2 id="github的使用" tabindex="-1"><a class="header-anchor" href="#github的使用"><span>GitHub的使用</span></a></h2>
+<template><div><h1 id="github的使用" tabindex="-1"><a class="header-anchor" href="#github的使用"><span>GitHub的使用</span></a></h1>
 <h3 id="github添加wiki" tabindex="-1"><a class="header-anchor" href="#github添加wiki"><span>GitHub添加wiki</span></a></h3>
 <p>参考链接：</p>
 <ul>

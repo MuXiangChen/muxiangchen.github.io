@@ -1,6 +1,7 @@
 <template><div><hr>
 <h2 id="title-01-数据库的基础知识publish-false" tabindex="-1"><a class="header-anchor" href="#title-01-数据库的基础知识publish-false"><span>title: 01-数据库的基础知识
 publish: false</span></a></h2>
+<h1 id="vue组件" tabindex="-1"><a class="header-anchor" href="#vue组件"><span>Vue组件</span></a></h1>
 <h2 id="子组件的定义和注册" tabindex="-1"><a class="header-anchor" href="#子组件的定义和注册"><span>子组件的定义和注册</span></a></h2>
 <p>我们在本文的第一段中，通过<code v-pre>Vue.component</code>形式定义的是<strong>全局组件</strong>。这一段中，我们来讲一下<strong>子组件</strong>。</p>
 <h3 id="在父组件中定义子组件" tabindex="-1"><a class="header-anchor" href="#在父组件中定义子组件"><span>在父组件中定义子组件</span></a></h3>

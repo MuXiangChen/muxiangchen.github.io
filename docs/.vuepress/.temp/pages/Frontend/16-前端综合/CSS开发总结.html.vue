@@ -1,4 +1,5 @@
-<template><div><h3 id="p标签里的文字溢出怎么办" tabindex="-1"><a class="header-anchor" href="#p标签里的文字溢出怎么办"><span>p标签里的文字溢出怎么办</span></a></h3>
+<template><div><h1 id="ajax相关" tabindex="-1"><a class="header-anchor" href="#ajax相关"><span>ajax相关</span></a></h1>
+<h3 id="p标签里的文字溢出怎么办" tabindex="-1"><a class="header-anchor" href="#p标签里的文字溢出怎么办"><span>p标签里的文字溢出怎么办</span></a></h3>
 <p>加一个属性即可：</p>
 <div class="language-css line-numbers-mode" data-highlighter="prismjs" data-ext="css" data-title="css"><pre v-pre><code><span class="line">	<span class="token property">word-break</span><span class="token punctuation">:</span> break-all<span class="token punctuation">;</span></span>
 <span class="line"></span>

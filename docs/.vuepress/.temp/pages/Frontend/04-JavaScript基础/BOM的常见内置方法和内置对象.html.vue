@@ -1,4 +1,5 @@
-<template><div><blockquote>
+<template><div><h1 id="bom的常见内置方法和内置对象" tabindex="-1"><a class="header-anchor" href="#bom的常见内置方法和内置对象"><span>BOM的常见内置方法和内置对象</span></a></h1>
+<blockquote>
 <p>本文最初发表于<a href="http://www.cnblogs.com/smyhvae/p/8401662.html" target="_blank" rel="noopener noreferrer">博客园</a>，并在<a href="https://github.com/qianguyihao/Web" target="_blank" rel="noopener noreferrer">GitHub</a>上持续更新<strong>前端的系列文章</strong>。欢迎在GitHub上关注我，一起入门和进阶前端。</p>
 </blockquote>
 <blockquote>

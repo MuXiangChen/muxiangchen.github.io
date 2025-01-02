@@ -1,5 +1,6 @@
 <template><div><h2 id="_2018年4月份" tabindex="-1"><a class="header-anchor" href="#_2018年4月份"><span>2018年4月份</span></a></h2>
 <h3 id="_2018-04-25" tabindex="-1"><a class="header-anchor" href="#_2018-04-25"><span>2018-04-25</span></a></h3>
+<h1 id="_2018年-前端日记" tabindex="-1"><a class="header-anchor" href="#_2018年-前端日记"><span>2018年-前端日记</span></a></h1>
 <ul>
 <li>userAgent相关：<a href="http://www.cnblogs.com/7z7chn/p/5370352.html" target="_blank" rel="noopener noreferrer">判断微信内置浏览器的UserAgent</a></li>
 </ul>

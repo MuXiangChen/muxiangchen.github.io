@@ -1,8 +1,9 @@
-<template><div><h2 id="前言" tabindex="-1"><a class="header-anchor" href="#前言"><span>前言</span></a></h2>
+<template><div><h1 id="数组的常见操作" tabindex="-1"><a class="header-anchor" href="#数组的常见操作"><span>数组的常见操作</span></a></h1>
+<h2 id="前言" tabindex="-1"><a class="header-anchor" href="#前言"><span>前言</span></a></h2>
 <p>数组在实战开发中，使用得相当频繁。前端同学通过接口拿到json数据后，往往需要把数据进行各种形式的变换和展示。这个时候，数组的常见操作，就发挥了很大的作用。</p>
 <p>如果你对数组的基础知识不太熟悉，建议回去看看<code v-pre>03-JavaScript</code>的基础知识。</p>
 <p>掌握了基础知识之后，我们再来看看，实战开发中，数组都有哪些常见操作。</p>
-<h2 id="数组的常见操作" tabindex="-1"><a class="header-anchor" href="#数组的常见操作"><span>数组的常见操作</span></a></h2>
+<h2 id="数组的常见操作-1" tabindex="-1"><a class="header-anchor" href="#数组的常见操作-1"><span>数组的常见操作</span></a></h2>
 <h3 id="从对象数组中-将属性的值提取为数组" tabindex="-1"><a class="header-anchor" href="#从对象数组中-将属性的值提取为数组"><span>从对象数组中，将属性的值提取为数组</span></a></h3>
 <p>一般人可能会想着通过 for 循环进行遍历，但这种做法不够简洁。</p>
 <p>最佳答案：</p>

@@ -1,4 +1,5 @@
-<template><div><h2 id="前端博客推荐" tabindex="-1"><a class="header-anchor" href="#前端博客推荐"><span>前端博客推荐</span></a></h2>
+<template><div><h1 id="前端博客推荐" tabindex="-1"><a class="header-anchor" href="#前端博客推荐"><span>前端博客推荐</span></a></h1>
+<h2 id="前端博客推荐-1" tabindex="-1"><a class="header-anchor" href="#前端博客推荐-1"><span>前端博客推荐</span></a></h2>
 <ul>
 <li>冴羽的博客：<a href="https://github.com/mqyqingfeng/Blog" target="_blank" rel="noopener noreferrer">https://github.com/mqyqingfeng/Blog</a></li>
 </ul>

@@ -1,4 +1,5 @@
-<template><div><h2 id="变量的命名规则-重要" tabindex="-1"><a class="header-anchor" href="#变量的命名规则-重要"><span>变量的命名规则（重要）</span></a></h2>
+<template><div><h1 id="_04-标识符、关键字、保留字" tabindex="-1"><a class="header-anchor" href="#_04-标识符、关键字、保留字"><span>04-标识符、关键字、保留字</span></a></h1>
+<h2 id="变量的命名规则-重要" tabindex="-1"><a class="header-anchor" href="#变量的命名规则-重要"><span>变量的命名规则（重要）</span></a></h2>
 <p>JS是大小敏感的语言。也就是说 A 和 a 是两个变量，并非同一个变量，比如：</p>
 <div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">var</span> <span class="token constant">A</span> <span class="token operator">=</span> <span class="token number">250</span><span class="token punctuation">;</span> <span class="token comment">//变量1</span></span>
 <span class="line"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">888</span><span class="token punctuation">;</span> <span class="token comment">//变量2</span></span>

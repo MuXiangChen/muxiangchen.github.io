@@ -1,4 +1,5 @@
-<template><div><blockquote>
+<template><div><h1 id="_02-2022年web前端入门自学路线-精简版" tabindex="-1"><a class="header-anchor" href="#_02-2022年web前端入门自学路线-精简版"><span>02-2022年Web前端入门自学路线（精简版）</span></a></h1>
+<blockquote>
 <p>本文的最新内容，更新于<strong>2021-10-09</strong>。大家完全不用担心这篇文章会过时，因为随着 前端技术的更新，本文也会随之更新。</p>
 </blockquote>
 <blockquote>

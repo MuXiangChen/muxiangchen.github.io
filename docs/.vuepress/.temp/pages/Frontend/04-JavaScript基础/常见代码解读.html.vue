@@ -1,4 +1,5 @@
-<template><div><h3 id="callback-callback-的含义" tabindex="-1"><a class="header-anchor" href="#callback-callback-的含义"><span><code v-pre>callback &amp;&amp; callback()</code>的含义</span></a></h3>
+<template><div><h1 id="常见代码解读" tabindex="-1"><a class="header-anchor" href="#常见代码解读"><span>常见代码解读</span></a></h1>
+<h3 id="callback-callback-的含义" tabindex="-1"><a class="header-anchor" href="#callback-callback-的含义"><span><code v-pre>callback &amp;&amp; callback()</code>的含义</span></a></h3>
 <div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line">callback <span class="token operator">&amp;&amp;</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span>
 <span class="line"></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>含义是：如果callback存在，则执行callback()函数。</p>

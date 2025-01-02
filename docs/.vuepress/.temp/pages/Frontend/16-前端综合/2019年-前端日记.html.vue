@@ -1,4 +1,5 @@
-<template><div><h3 id="_2019-04-02" tabindex="-1"><a class="header-anchor" href="#_2019-04-02"><span>2019-04-02</span></a></h3>
+<template><div><h1 id="_2019年-前端日记" tabindex="-1"><a class="header-anchor" href="#_2019年-前端日记"><span>2019年-前端日记</span></a></h1>
+<h3 id="_2019-04-02" tabindex="-1"><a class="header-anchor" href="#_2019-04-02"><span>2019-04-02</span></a></h3>
 <p>Vue屏幕宽度自适应：</p>
 <p><a href="https://blog.csdn.net/qq_25386583/article/details/77161478" target="_blank" rel="noopener noreferrer">https://blog.csdn.net/qq_25386583/article/details/77161478</a></p>
 <p><a href="https://blog.csdn.net/xuaner8786/article/details/81565219" target="_blank" rel="noopener noreferrer">https://blog.csdn.net/xuaner8786/article/details/81565219</a></p>

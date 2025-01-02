@@ -1,6 +1,6 @@
 
 
-## GitHub的使用
+# GitHub的使用
 
 
 ### GitHub添加wiki

@@ -1,4 +1,5 @@
-<template><div><h2 id="前言" tabindex="-1"><a class="header-anchor" href="#前言"><span>前言</span></a></h2>
+<template><div><h1 id="前端监控技术" tabindex="-1"><a class="header-anchor" href="#前端监控技术"><span>前端监控技术</span></a></h1>
+<h2 id="前言" tabindex="-1"><a class="header-anchor" href="#前言"><span>前言</span></a></h2>
 <p>要监控的内容：</p>
 <ul>
 <li>

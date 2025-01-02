@@ -1,4 +1,5 @@
-<template><div><h2 id="webstorm的简单设置" tabindex="-1"><a class="header-anchor" href="#webstorm的简单设置"><span>WebStorm的简单设置</span></a></h2>
+<template><div><h1 id="webstorm的使用" tabindex="-1"><a class="header-anchor" href="#webstorm的使用"><span>WebStorm的使用</span></a></h1>
+<h2 id="webstorm的简单设置" tabindex="-1"><a class="header-anchor" href="#webstorm的简单设置"><span>WebStorm的简单设置</span></a></h2>
 <h4 id="_1、主题修改" tabindex="-1"><a class="header-anchor" href="#_1、主题修改"><span>1、主题修改：</span></a></h4>
 <p>可能大家会觉得软件的界面不太好看，我们可以换一下主题。选择菜单栏“File--settings--appearance--theme”，主题选择 Dracula：</p>
 <p><img src="http://img.smyhvae.com/20180118_1600.png" alt=""></p>

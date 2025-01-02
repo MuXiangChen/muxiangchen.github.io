@@ -9,12 +9,6 @@ export default defineUserConfig({
   bundler: viteBundler(),
     base: '/',
     head: [['link', { rel: 'icon', href: '/images/heroicon.png' }]],
-    markdown: {
-      lineNumbers:true,
-      extendMarkdown: md => {
-        md.use(require('markdown-it-task-lists'))
-      }
-    },
     title: '穆相臣的博客',
     theme: defaultTheme({
         logo: '/images/heroicon.png',

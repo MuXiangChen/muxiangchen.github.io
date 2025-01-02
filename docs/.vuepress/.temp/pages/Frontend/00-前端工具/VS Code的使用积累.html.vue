@@ -1,4 +1,5 @@
-<template><div><h2 id="常见配置" tabindex="-1"><a class="header-anchor" href="#常见配置"><span>常见配置</span></a></h2>
+<template><div><h1 id="vs-code的使用积累" tabindex="-1"><a class="header-anchor" href="#vs-code的使用积累"><span>VS Code的使用积累</span></a></h1>
+<h2 id="常见配置" tabindex="-1"><a class="header-anchor" href="#常见配置"><span>常见配置</span></a></h2>
 <p><strong>自动保存</strong>：</p>
 <div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line"> "files.autoSave": "onFocusChange"</span>
 <span class="line"></span></code></pre>

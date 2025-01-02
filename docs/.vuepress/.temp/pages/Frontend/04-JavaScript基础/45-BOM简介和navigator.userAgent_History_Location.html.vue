@@ -1,4 +1,5 @@
-<template><div><h2 id="常见概念" tabindex="-1"><a class="header-anchor" href="#常见概念"><span>常见概念</span></a></h2>
+<template><div><h1 id="_45-bom简介和navigator-useragent-history-location" tabindex="-1"><a class="header-anchor" href="#_45-bom简介和navigator-useragent-history-location"><span>45-BOM简介和navigator.userAgent&amp;History&amp;Location</span></a></h1>
+<h2 id="常见概念" tabindex="-1"><a class="header-anchor" href="#常见概念"><span>常见概念</span></a></h2>
 <h3 id="javascript的组成" tabindex="-1"><a class="header-anchor" href="#javascript的组成"><span>JavaScript的组成</span></a></h3>
 <p>JavaScript基础分为三个部分：</p>
 <ul>

@@ -1,4 +1,5 @@
-<template><div><h2 id="_2024-年-12-月" tabindex="-1"><a class="header-anchor" href="#_2024-年-12-月"><span>2024 年 12 月</span></a></h2>
+<template><div><h1 id="_2024年-前端日记" tabindex="-1"><a class="header-anchor" href="#_2024年-前端日记"><span>2024年-前端日记</span></a></h1>
+<h2 id="_2024-年-12-月" tabindex="-1"><a class="header-anchor" href="#_2024-年-12-月"><span>2024 年 12 月</span></a></h2>
 <h3 id="_2024-01-09" tabindex="-1"><a class="header-anchor" href="#_2024-01-09"><span>2024-01-09</span></a></h3>
 <p>许多CSS属性都可以使用 inherit 以便元素继承父元素的相应属性值。使用 inherit 可以确保一致性和更好的维护性，尤其是在嵌套元素的情况下。</p>
 <p>代码举例：</p>

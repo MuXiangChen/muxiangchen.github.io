@@ -1,4 +1,5 @@
-<template><div><h2 id="前言" tabindex="-1"><a class="header-anchor" href="#前言"><span>前言</span></a></h2>
+<template><div><h1 id="_02-浅拷贝和深拷贝" tabindex="-1"><a class="header-anchor" href="#_02-浅拷贝和深拷贝"><span>02-浅拷贝和深拷贝</span></a></h1>
+<h2 id="前言" tabindex="-1"><a class="header-anchor" href="#前言"><span>前言</span></a></h2>
 <p>在 JavaScript 的编程中经常需要对数据进行复制，这就涉及到浅拷贝和深拷贝，是非常重要的概念。</p>
 <h2 id="浅拷贝" tabindex="-1"><a class="header-anchor" href="#浅拷贝"><span>浅拷贝</span></a></h2>
 <h3 id="概念" tabindex="-1"><a class="header-anchor" href="#概念"><span>概念</span></a></h3>

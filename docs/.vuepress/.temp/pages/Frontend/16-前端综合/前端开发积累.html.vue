@@ -1,4 +1,5 @@
-<template><div><h3 id="spu-和-sku" tabindex="-1"><a class="header-anchor" href="#spu-和-sku"><span>SPU 和 SKU</span></a></h3>
+<template><div><h1 id="前端开发积累" tabindex="-1"><a class="header-anchor" href="#前端开发积累"><span>前端开发积累</span></a></h1>
+<h3 id="spu-和-sku" tabindex="-1"><a class="header-anchor" href="#spu-和-sku"><span>SPU 和 SKU</span></a></h3>
 <p>SKU（stock keeping unit）：库存量单位。 SKU是物理上不可分割的最小库存单元。通俗来讲，你可以把 sku 理解成是「<strong>最小单元</strong>」。</p>
 <p>SPU（Standard Product Unit）：标准化产品单元。是商品信息聚合的最小单位。通俗来讲，你可以把 spu 理解成是「<strong>某一类的单元</strong>」。</p>
 <p>比如说，针对 Kindle paperwhite4 这款阅读器，颜色分白色、黑色两种。那么，白色和黑色的sku是不一样的。因此，Kindle paperwhite4 这款阅读器有「<strong>两个sku、一个spu</strong>」。</p>

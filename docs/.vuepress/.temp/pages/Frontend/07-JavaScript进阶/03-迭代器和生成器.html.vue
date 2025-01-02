@@ -1,4 +1,5 @@
-<template><div><h2 id="迭代器" tabindex="-1"><a class="header-anchor" href="#迭代器"><span>迭代器</span></a></h2>
+<template><div><h1 id="_03-迭代器和生成器" tabindex="-1"><a class="header-anchor" href="#_03-迭代器和生成器"><span>03-迭代器和生成器</span></a></h1>
+<h2 id="迭代器" tabindex="-1"><a class="header-anchor" href="#迭代器"><span>迭代器</span></a></h2>
 <h3 id="概念" tabindex="-1"><a class="header-anchor" href="#概念"><span>概念</span></a></h3>
 <p><strong>迭代器</strong>（Iterator）是 JavaScript 中一种特殊的对象，它提供了一种<strong>统一的、通用的</strong>方式<strong>遍历</strong>个各种不同类型的数据结构。可以遍历的数据结构包括：数组、字符串、Set、Map 等<strong>可迭代对象</strong>。我们也可以自定义实现迭代器，以支持遍历自定义的数据结构。</p>
 <p>通过迭代器，我们可以按顺序逐个获取数据中的元素，不需要手动跟踪索引（索引也可称之为指针、游标）。迭代器的行为很像数据库中的游标（cursor）。</p>

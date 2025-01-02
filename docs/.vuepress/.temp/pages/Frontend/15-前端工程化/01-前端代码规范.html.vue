@@ -1,4 +1,5 @@
-<template><div><h2 id="前端代码规范-推荐资料" tabindex="-1"><a class="header-anchor" href="#前端代码规范-推荐资料"><span>前端代码规范-推荐资料</span></a></h2>
+<template><div><h1 id="_01-前端代码规范" tabindex="-1"><a class="header-anchor" href="#_01-前端代码规范"><span>01-前端代码规范</span></a></h1>
+<h2 id="前端代码规范-推荐资料" tabindex="-1"><a class="header-anchor" href="#前端代码规范-推荐资料"><span>前端代码规范-推荐资料</span></a></h2>
 <h3 id="js规范-重点推荐下面这两个" tabindex="-1"><a class="header-anchor" href="#js规范-重点推荐下面这两个"><span>JS规范，重点推荐下面这两个</span></a></h3>
 <p>1、Airbnb JavaScript Style Guide：</p>
 <ul>

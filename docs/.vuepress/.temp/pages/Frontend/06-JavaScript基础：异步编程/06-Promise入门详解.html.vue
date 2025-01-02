@@ -1,4 +1,5 @@
-<template><div><h2 id="前言" tabindex="-1"><a class="header-anchor" href="#前言"><span>前言</span></a></h2>
+<template><div><h1 id="_06-promise入门详解" tabindex="-1"><a class="header-anchor" href="#_06-promise入门详解"><span>06-Promise入门详解</span></a></h1>
+<h2 id="前言" tabindex="-1"><a class="header-anchor" href="#前言"><span>前言</span></a></h2>
 <p>Promise 是 JavaScript 中特有的语法。可以毫不夸张得说，Promise 是ES6中最重要的语法，没有之一。初学者可能对 Promise 的概念有些陌生，但是不用担心。大多数情况下，使用 Promise 的语法是比较固定的。我们可以先把这些固定语法和结构记下来，多默写几遍；然后在实战开发中逐渐去学习和领悟 Promise 的原理、底层逻辑以及细节知识点，自然就慢慢掌握了。</p>
 <p>在了解 Promise 之前，必须要知道什么是回调函数，这是必不可少的前置知识。关于回调函数的知识，已经在上一篇文章中做了讲解。</p>
 <h2 id="promise-的介绍和优点-为什么需要-promise" tabindex="-1"><a class="header-anchor" href="#promise-的介绍和优点-为什么需要-promise"><span>Promise 的介绍和优点（为什么需要 Promise？）</span></a></h2>

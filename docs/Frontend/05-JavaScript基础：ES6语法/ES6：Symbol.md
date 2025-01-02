@@ -3,7 +3,7 @@ publish: false
 ---
 
 
-
+# ES6: Symbol
 ## Symbol
 
 ### 概述

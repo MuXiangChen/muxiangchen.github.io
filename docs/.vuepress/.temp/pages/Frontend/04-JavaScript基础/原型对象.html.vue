@@ -1,7 +1,8 @@
-<template><div><blockquote>
+<template><div><h1 id="原型对象" tabindex="-1"><a class="header-anchor" href="#原型对象"><span>原型对象</span></a></h1>
+<blockquote>
 <p>在看本文之前，我们可以先复习上一篇文章：《03-JavaScript基础/12-对象的创建&amp;构造函数.md》</p>
 </blockquote>
-<h2 id="原型对象" tabindex="-1"><a class="header-anchor" href="#原型对象"><span>原型对象</span></a></h2>
+<h2 id="原型对象-1" tabindex="-1"><a class="header-anchor" href="#原型对象-1"><span>原型对象</span></a></h2>
 <h3 id="原型的引入" tabindex="-1"><a class="header-anchor" href="#原型的引入"><span>原型的引入</span></a></h3>
 <div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line">        <span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> age<span class="token punctuation">,</span> gender</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
 <span class="line">            <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span></span>

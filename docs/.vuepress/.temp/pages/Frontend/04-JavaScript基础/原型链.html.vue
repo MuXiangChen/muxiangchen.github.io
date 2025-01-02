@@ -1,4 +1,5 @@
-<template><div><h2 id="常见概念" tabindex="-1"><a class="header-anchor" href="#常见概念"><span>常见概念</span></a></h2>
+<template><div><h1 id="原型链" tabindex="-1"><a class="header-anchor" href="#原型链"><span>原型链</span></a></h1>
+<h2 id="常见概念" tabindex="-1"><a class="header-anchor" href="#常见概念"><span>常见概念</span></a></h2>
 <ul>
 <li>
 <p>构造函数</p>
@@ -97,7 +98,7 @@
 <span class="line">    <span class="token punctuation">}</span></span>
 <span class="line"><span class="token punctuation">}</span></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="原型链" tabindex="-1"><a class="header-anchor" href="#原型链"><span>原型链</span></a></h2>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="原型链-1" tabindex="-1"><a class="header-anchor" href="#原型链-1"><span>原型链</span></a></h2>
 <p>还是拿上面的<code v-pre>举例代码1</code>举例，如果此时在最后面加一行代码：</p>
 <div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">	fn.toString();   //去 fn._proto_._proto_ 中查找 toString()方法</span>
 <span class="line"></span></code></pre>

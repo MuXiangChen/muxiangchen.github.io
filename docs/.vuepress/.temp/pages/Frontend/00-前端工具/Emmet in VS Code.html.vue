@@ -1,4 +1,5 @@
-<template><div><h2 id="前言" tabindex="-1"><a class="header-anchor" href="#前言"><span>前言</span></a></h2>
+<template><div><h1 id="emmet-in-vs-code" tabindex="-1"><a class="header-anchor" href="#emmet-in-vs-code"><span>Emmet in VS Code</span></a></h1>
+<h2 id="前言" tabindex="-1"><a class="header-anchor" href="#前言"><span>前言</span></a></h2>
 <p><code v-pre>Emmet</code>可以极大的提高 html 和 css 的编写效率，它提供了一种非常简练的语法规则。</p>
 <p>举个例子，我们在编辑器中输入缩写代码：<code v-pre>ul&gt;li*6</code> ，然后按下 Tab 键，即可得到如下代码片段：</p>
 <div class="language-html line-numbers-mode" data-highlighter="prismjs" data-ext="html" data-title="html"><pre v-pre><code><span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span></span>

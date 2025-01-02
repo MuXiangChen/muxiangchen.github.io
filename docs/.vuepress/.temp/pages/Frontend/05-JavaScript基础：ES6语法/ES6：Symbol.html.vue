@@ -1,4 +1,5 @@
-<template><div><h2 id="symbol" tabindex="-1"><a class="header-anchor" href="#symbol"><span>Symbol</span></a></h2>
+<template><div><h1 id="es6-symbol" tabindex="-1"><a class="header-anchor" href="#es6-symbol"><span>ES6: Symbol</span></a></h1>
+<h2 id="symbol" tabindex="-1"><a class="header-anchor" href="#symbol"><span>Symbol</span></a></h2>
 <h3 id="概述" tabindex="-1"><a class="header-anchor" href="#概述"><span>概述</span></a></h3>
 <p>背景：ES5中对象的属性名都是字符串，容易造成重名，污染环境。</p>
 <p><strong>概念</strong>：ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值。它是 JavaScript 语言的第七种数据类型，前六种是：undefined、null、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。</p>

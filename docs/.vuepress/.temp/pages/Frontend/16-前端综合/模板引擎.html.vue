@@ -1,4 +1,5 @@
-<template><div><h2 id="模版引擎" tabindex="-1"><a class="header-anchor" href="#模版引擎"><span>模版引擎</span></a></h2>
+<template><div><h1 id="_02-2022年web前端入门自学路线-精简版" tabindex="-1"><a class="header-anchor" href="#_02-2022年web前端入门自学路线-精简版"><span>02-2022年Web前端入门自学路线（精简版）</span></a></h1>
+<h2 id="模版引擎" tabindex="-1"><a class="header-anchor" href="#模版引擎"><span>模版引擎</span></a></h2>
 <h3 id="引入" tabindex="-1"><a class="header-anchor" href="#引入"><span>引入</span></a></h3>
 <p>我们在使用ajax请求数据时，返回的如果是一个 JSON 格式的字符串，我们需要将其包装到对应的HTML代码中，再添加到页面上，才能看到效果。那么这个包装得过程有没有简单的方法呢?</p>
 <p>假设在 js 中有如下数据：</p>

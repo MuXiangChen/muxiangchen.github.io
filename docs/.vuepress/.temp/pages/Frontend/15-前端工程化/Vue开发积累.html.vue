@@ -1,4 +1,4 @@
-<template><div><h2 id="vue-开发积累" tabindex="-1"><a class="header-anchor" href="#vue-开发积累"><span>Vue 开发积累</span></a></h2>
+<template><div><h1 id="vue-开发积累" tabindex="-1"><a class="header-anchor" href="#vue-开发积累"><span>Vue 开发积累</span></a></h1>
 <h3 id="_001-scoped-关键字的作用" tabindex="-1"><a class="header-anchor" href="#_001-scoped-关键字的作用"><span>001：scoped 关键字的作用</span></a></h3>
 <p>在 <code v-pre>xx.vue</code> 组件中，我们可能会遇到带 <code v-pre>scoped</code> 关键字的样式。比如：</p>
 <div class="language-html line-numbers-mode" data-highlighter="prismjs" data-ext="html" data-title="html"><pre v-pre><code><span class="line"><span class="token comment">&lt;!-- Add "scoped" attribute to limit CSS to this component only --></span></span>

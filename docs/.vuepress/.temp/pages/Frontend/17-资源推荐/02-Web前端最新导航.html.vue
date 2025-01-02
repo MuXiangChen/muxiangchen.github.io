@@ -1,4 +1,5 @@
-<template><div><blockquote>
+<template><div><h1 id="_02-web前端最新导航" tabindex="-1"><a class="header-anchor" href="#_02-web前端最新导航"><span>02-Web前端最新导航</span></a></h1>
+<blockquote>
 <p>本文的最新内容将在<a href="https://github.com/qianguyihao/Web" target="_blank" rel="noopener noreferrer">GitHub</a>上实时更新。欢迎在GitHub上关注我，一起入门和进阶前端。</p>
 </blockquote>
 <h2 id="前言" tabindex="-1"><a class="header-anchor" href="#前言"><span>前言</span></a></h2>

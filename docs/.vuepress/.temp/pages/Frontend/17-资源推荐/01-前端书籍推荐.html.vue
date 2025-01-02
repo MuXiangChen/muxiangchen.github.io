@@ -1,4 +1,5 @@
-<template><div><h2 id="js相关书籍" tabindex="-1"><a class="header-anchor" href="#js相关书籍"><span>JS相关书籍</span></a></h2>
+<template><div><h1 id="_01-前端书籍推荐" tabindex="-1"><a class="header-anchor" href="#_01-前端书籍推荐"><span>01-前端书籍推荐</span></a></h1>
+<h2 id="js相关书籍" tabindex="-1"><a class="header-anchor" href="#js相关书籍"><span>JS相关书籍</span></a></h2>
 <h3 id="《javascript高级程序设计》" tabindex="-1"><a class="header-anchor" href="#《javascript高级程序设计》"><span>《<a href="https://book.douban.com/subject/35175321/" target="_blank" rel="noopener noreferrer">JavaScript高级程序设计</a>》</span></a></h3>
 <p>红宝书，人人都知道。</p>
 <h3 id="《javascript语言精髓与编程实践》" tabindex="-1"><a class="header-anchor" href="#《javascript语言精髓与编程实践》"><span>《<a href="https://book.douban.com/subject/35085910/" target="_blank" rel="noopener noreferrer">JavaScript语言精髓与编程实践</a>》</span></a></h3>

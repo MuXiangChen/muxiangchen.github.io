@@ -1,5 +1,5 @@
 
-
+# ajax相关
 ### jsonp ajax
 
 ajax跨域访问是一个老问题了，解决方法很多，比较常用的是JSONP方法，JSONP方法是一种非官方方法，而且这种方法只支持GET方式，不如POST方式安全。

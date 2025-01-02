@@ -1,4 +1,5 @@
-<template><div><ul>
+<template><div><h1 id="网友对本项目提的建议" tabindex="-1"><a class="header-anchor" href="#网友对本项目提的建议"><span>网友对本项目提的建议</span></a></h1>
+<ul>
 <li>
 <p>图片的宽度，最好不要超过800px，否则在github上显示不完整，甚至无法显示。</p>
 </li>

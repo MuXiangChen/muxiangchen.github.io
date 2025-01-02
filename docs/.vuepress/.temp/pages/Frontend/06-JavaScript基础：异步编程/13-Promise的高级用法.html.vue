@@ -1,4 +1,5 @@
-<template><div><h2 id="node-js-中的util-promisify-方法" tabindex="-1"><a class="header-anchor" href="#node-js-中的util-promisify-方法"><span>Node.js 中的util.promisify()方法</span></a></h2>
+<template><div><h1 id="_13-promise的高级用法" tabindex="-1"><a class="header-anchor" href="#_13-promise的高级用法"><span>13-Promise的高级用法</span></a></h1>
+<h2 id="node-js-中的util-promisify-方法" tabindex="-1"><a class="header-anchor" href="#node-js-中的util-promisify-方法"><span>Node.js 中的util.promisify()方法</span></a></h2>
 <p>Node.js 中有一个内置的方法 util.promisify()，它可以很方便地将 ES5回调函数写法的方法，转成Promise写法的方法。就不需要我们手动封装Promise了。</p>
 <p>代码举例：</p>
 <div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token comment">// 引入 util 模块</span></span>

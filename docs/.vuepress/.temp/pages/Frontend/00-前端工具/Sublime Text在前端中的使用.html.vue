@@ -1,4 +1,5 @@
-<template><div><h3 id="新建文件时快速生成html" tabindex="-1"><a class="header-anchor" href="#新建文件时快速生成html"><span>新建文件时快速生成Html</span></a></h3>
+<template><div><h1 id="sublime-text在前端中的使用" tabindex="-1"><a class="header-anchor" href="#sublime-text在前端中的使用"><span>Sublime Text在前端中的使用</span></a></h1>
+<h3 id="新建文件时快速生成html" tabindex="-1"><a class="header-anchor" href="#新建文件时快速生成html"><span>新建文件时快速生成Html</span></a></h3>
 <p><strong>安装如下插件：</strong></p>
 <ul>
 <li>FileHeader：自动创建文件开头模板，并且会根据最后的保存时间修改更新时间。<a href="https://github.com/shiyanhui/FileHeader" target="_blank" rel="noopener noreferrer">官网链接</a>。</li>

@@ -1,4 +1,5 @@
-<template><div><h2 id="ssi-服务器端嵌入" tabindex="-1"><a class="header-anchor" href="#ssi-服务器端嵌入"><span>SSI：服务器端嵌入</span></a></h2>
+<template><div><h1 id="html相关" tabindex="-1"><a class="header-anchor" href="#html相关"><span>html相关</span></a></h1>
+<h2 id="ssi-服务器端嵌入" tabindex="-1"><a class="header-anchor" href="#ssi-服务器端嵌入"><span>SSI：服务器端嵌入</span></a></h2>
 <p>SSI：Server Side Include，服务器端嵌入。</p>
 <p>通俗点讲，就是在本地的html页面中，插入服务器上的文件。即：静态页面中，插入动态的代码。</p>
 <p>比如：</p>

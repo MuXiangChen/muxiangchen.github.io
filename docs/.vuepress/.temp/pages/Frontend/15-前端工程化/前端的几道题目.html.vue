@@ -1,4 +1,5 @@
-<template><div><p>几道面试题</p>
+<template><div><h1 id="前端常见专有名词" tabindex="-1"><a class="header-anchor" href="#前端常见专有名词"><span>前端常见专有名词</span></a></h1>
+<p>几道面试题</p>
 <h2 id="页面布局" tabindex="-1"><a class="header-anchor" href="#页面布局"><span>页面布局</span></a></h2>
 <h3 id="如何实现一个三栏布局-要求两边固定宽度、中间自适应。" tabindex="-1"><a class="header-anchor" href="#如何实现一个三栏布局-要求两边固定宽度、中间自适应。"><span>如何实现一个三栏布局，要求两边固定宽度、中间自适应。</span></a></h3>
 <p>此题可以考察的知识点：</p>

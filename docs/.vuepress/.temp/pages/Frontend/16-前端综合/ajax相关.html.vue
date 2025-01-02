@@ -1,4 +1,5 @@
-<template><div><h3 id="jsonp-ajax" tabindex="-1"><a class="header-anchor" href="#jsonp-ajax"><span>jsonp ajax</span></a></h3>
+<template><div><h1 id="ajax相关" tabindex="-1"><a class="header-anchor" href="#ajax相关"><span>ajax相关</span></a></h1>
+<h3 id="jsonp-ajax" tabindex="-1"><a class="header-anchor" href="#jsonp-ajax"><span>jsonp ajax</span></a></h3>
 <p>ajax跨域访问是一个老问题了，解决方法很多，比较常用的是JSONP方法，JSONP方法是一种非官方方法，而且这种方法只支持GET方式，不如POST方式安全。</p>
 <p>意思是说，如果后台返回的数据类型是jsonp，那么前端的请求方式只能是get，不能是post。</p>
 <p>如果跨域使用POST方式，可以使用创建一个隐藏的iframe来实现，与ajax上传图片原理一样，但这样会比较麻烦。</p>

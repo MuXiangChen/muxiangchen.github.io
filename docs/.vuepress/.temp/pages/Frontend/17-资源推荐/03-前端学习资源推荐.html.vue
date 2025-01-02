@@ -1,4 +1,5 @@
-<template><div><h2 id="前端教程" tabindex="-1"><a class="header-anchor" href="#前端教程"><span>前端教程</span></a></h2>
+<template><div><h1 id="_03-前端学习资源推荐" tabindex="-1"><a class="header-anchor" href="#_03-前端学习资源推荐"><span>03-前端学习资源推荐</span></a></h1>
+<h2 id="前端教程" tabindex="-1"><a class="header-anchor" href="#前端教程"><span>前端教程</span></a></h2>
 <h3 id="千古前端图文教程" tabindex="-1"><a class="header-anchor" href="#千古前端图文教程"><span>千古前端图文教程</span></a></h3>
 <ul>
 <li>

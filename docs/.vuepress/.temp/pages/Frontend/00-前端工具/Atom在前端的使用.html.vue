@@ -1,4 +1,5 @@
-<template><div><h2 id="常用插件" tabindex="-1"><a class="header-anchor" href="#常用插件"><span>常用插件</span></a></h2>
+<template><div><h1 id="atom在前端的使用" tabindex="-1"><a class="header-anchor" href="#atom在前端的使用"><span>Atom在前端的使用</span></a></h1>
+<h2 id="常用插件" tabindex="-1"><a class="header-anchor" href="#常用插件"><span>常用插件</span></a></h2>
 <ul>
 <li><code v-pre>Emmet</code>：快速生成HTML片段，比如输入ul&gt;li*3可以快速生成：</li>
 </ul>

@@ -1,4 +1,4 @@
-<template><div><h2 id="参考链接" tabindex="-1"><a class="header-anchor" href="#参考链接"><span>参考链接</span></a></h2>
+<template><div><h1 id="mac安装和配置iterm2" tabindex="-1"><a class="header-anchor" href="#mac安装和配置iterm2"><span>Mac安装和配置iTerm2</span></a></h1>
 <ul>
 <li>
 <p><a href="https://github.com/sirius1024/iterm2-with-oh-my-zsh" target="_blank" rel="noopener noreferrer">iTerm2 + Oh My Zsh 打造舒适终端体验</a></p>
