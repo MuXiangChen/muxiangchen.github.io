@@ -1,0 +1,3 @@
+import comp from "/Users/muxiangchen/Desktop/muxiangchen.github.io/docs/.vuepress/.temp/pages/Frontend/06-JavaScript基础：异步编程/14-Promise常见面试题.html.vue"
+const data = JSON.parse("{\"path\":\"/Frontend/06-JavaScript%E5%9F%BA%E7%A1%80%EF%BC%9A%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/14-Promise%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98.html\",\"title\":\"\",\"lang\":\"en-US\",\"frontmatter\":{},\"headers\":[{\"level\":2,\"title\":\"这些代码的打印结果是什么？\",\"slug\":\"这些代码的打印结果是什么\",\"link\":\"#这些代码的打印结果是什么\",\"children\":[]}],\"git\":{},\"filePathRelative\":\"Frontend/06-JavaScript基础：异步编程/14-Promise常见面试题.md\"}")
+export { comp, data }

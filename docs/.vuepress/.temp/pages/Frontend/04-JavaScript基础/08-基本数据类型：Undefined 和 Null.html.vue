@@ -1,0 +1,94 @@
+<template><div><p>有些其他的语言中，只有 null；但 JS 语言中，既有 undefined，又有 null。很多人会弄混，由此觉得 JS 语言很麻烦。其实不然，学习完本文后，你会发现 undefined 和 null 的区别很容易理解。</p>
+<h2 id="undefined-未定义类型" tabindex="-1"><a class="header-anchor" href="#undefined-未定义类型"><span>Undefined：未定义类型</span></a></h2>
+<p>Undefined 类型的值只有一个，就是 undefind。比如 <code v-pre>var a = undefined</code>。</p>
+<p>使用 typeof 检查一个 undefined 值时，会返回 undefined。</p>
+<p>undefined 的出现有以下几种情况。</p>
+<h3 id="case1-变量已声明-未赋值-未初始化" tabindex="-1"><a class="header-anchor" href="#case1-变量已声明-未赋值-未初始化"><span>case1：变量已声明，未赋值（未初始化）</span></a></h3>
+<p>一个变量如果只<strong>声明</strong>了，但没有<strong>赋值</strong>，此时它的值就是 <code v-pre>undefined</code>。举例：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">var</span> name<span class="token punctuation">;</span></span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 打印结果：undefined</span></span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 打印结果：undefined</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>下面这两行代码是等价的：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token comment">// 写法1</span></span>
+<span class="line"><span class="token keyword">var</span> name<span class="token punctuation">;</span></span>
+<span class="line"><span class="token comment">// 写法2。这种写法冗余了，不推荐。</span></span>
+<span class="line"><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>注意事项：</p>
+<p>1、不要显式地将变量赋值为 undefined，不太规范。也就是说，上面的写法 2 是冗余的，增加了不必要的代码量，这种写法不太规范。</p>
+<p>2、变量在定义时，尽量做一下初始化（赋值操作），而不是只声明一个变量。上面的写法 1 就是属于只声明一个变量，也不太推荐这种写法。</p>
+<p>如果变量刚开始没有值，我们可以将其赋一个默认值（空字符串、false、0、null 等值），这有利于代码书写的语义化。推荐的代码举例：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span> <span class="token comment">// 字符串类型的变量，如果刚开始没有值，则可以初始化为空字符串</span></span>
+<span class="line"><span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">// 布尔类型的变量，如果刚开始没有值，则可以考虑默认值为 false</span></span>
+<span class="line"><span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 字符串类型的变量，如果刚开始没有值，可以考虑默认值为 0</span></span>
+<span class="line"><span class="token keyword">var</span> d <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// 空对象，可以初始化为 null</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="case2-变量未声明-未定义" tabindex="-1"><a class="header-anchor" href="#case2-变量未声明-未定义"><span>case2：变量未声明（未定义）</span></a></h3>
+<p>如果你从未声明一个变量，就去使用它，则会报错（这个大家都知道）；此时，如果用 <code v-pre>typeof</code> 检查这个变量时，会返回 <code v-pre>undefined</code>。举例：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span></span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 打印结果：Uncaught ReferenceError: a is not defined</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="case3-函数无返回值时" tabindex="-1"><a class="header-anchor" href="#case3-函数无返回值时"><span>case3：函数无返回值时</span></a></h3>
+<p>如果一个函数没有返回值，那么，这个函数的返回值就是 undefined。</p>
+<p>或者，也可以这样理解：在定义一个函数时，如果末尾没有 return 语句，那么，其实就是 <code v-pre>return undefined</code>。</p>
+<p>举例：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 打印结果：undefined</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="case4-调用函数时-未传参" tabindex="-1"><a class="header-anchor" href="#case4-调用函数时-未传参"><span>case4：调用函数时，未传参</span></a></h3>
+<p>调用函数时，如果没有传实参，那么，对应形参的值就是 undefined。</p>
+<p>举例：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 调用函数时，未传参。执行函数后的打印结果：undefined</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>实际开发中，如果调用函数时没有传参，我们可以根据需要给形参设置一个默认值：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    name <span class="token operator">=</span> name <span class="token operator">||</span> <span class="token string">'qianguyihao'</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>等学习了 ES6 之后，上方代码也可以这样写：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">'qianguyihao'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="null-空对象" tabindex="-1"><a class="header-anchor" href="#null-空对象"><span>Null：空对象</span></a></h2>
+<p>Null 类型的值只有一个，就是 null。比如 <code v-pre>var a = null</code>。</p>
+<p>null 专门用来定义一个<strong>空对象</strong>。例如：<code v-pre>let a = null</code>，又例如 <code v-pre>Object.create(null)</code>。</p>
+<p>如果你想定义一个变量用来保存引用类型（也就是对象），但是还不确定放什么内容，这个时候，可以在初始化时将其赋值为 null。</p>
+<p>从语义上讲，null表示一个空对象，所以使用 typeof 检查一个 null 值时，会返回 object。举例：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">var</span> myObj <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span></span>
+<span class="line">cosole<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> myObj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 打印结果：object</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="其他区别" tabindex="-1"><a class="header-anchor" href="#其他区别"><span>其他区别</span></a></h2>
+<p>undefined 实际上是由 null 衍生出来的，所以<code v-pre>null == undefined</code>的结果为 true。</p>
+<p>但是 <code v-pre>null === undefined</code> 的结果是 false。它们虽然相似，但还是有区别的，其中一个区别是，和数字运算时：</p>
+<ul>
+<li>
+<p>10 + null 结果为 10。</p>
+</li>
+<li>
+<p>10 + undefined 结果为 NaN。</p>
+</li>
+</ul>
+<p>规律总结：</p>
+<ul>
+<li>
+<p>任何值和 null 运算，null 可看做 0 运算。</p>
+</li>
+<li>
+<p>任何数据类型和 undefined 运算都是 NaN。</p>
+</li>
+</ul>
+<h2 id="赞赏作者" tabindex="-1"><a class="header-anchor" href="#赞赏作者"><span>赞赏作者</span></a></h2>
+<p>创作不易，你的赞赏和认可，是我更新的最大动力：</p>
+<p><img src="https://img.smyhvae.com/20220401_1800.jpg" alt=""></p>
+</div></template>
+
+

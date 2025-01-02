@@ -1,0 +1,96 @@
+<template><div><h2 id="call-和apply" tabindex="-1"><a class="header-anchor" href="#call-和apply"><span>call()和apply()</span></a></h2>
+<h3 id="介绍" tabindex="-1"><a class="header-anchor" href="#介绍"><span>介绍</span></a></h3>
+<p>这两个方法都是函数对象的方法，需要通过函数对象来调用。</p>
+<p>当函数调用call()和apply()时，函数都会立即<strong>执行</strong>。</p>
+<ul>
+<li>
+<p>都可以用来改变函数的this对象的指向。</p>
+</li>
+<li>
+<p>第一个参数都是this要指向的对象（函数执行时，this将指向这个对象），后续参数用来传实参。</p>
+</li>
+</ul>
+<h3 id="显式绑定this" tabindex="-1"><a class="header-anchor" href="#显式绑定this"><span>显式绑定this</span></a></h3>
+<p>JS提供的绝大多数函数以及我们自己创建的所有函数，都可以使用call 和apply方法。</p>
+<p>它们的第一个参数是一个对象。因为你可以直接指定 this 绑定的对象，因此我们称之为显式绑定。</p>
+<p>例1：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line">    <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line">    <span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token literal-property property">a</span><span class="token operator">:</span> <span class="token number">2</span></span>
+<span class="line">    <span class="token punctuation">}</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">    <span class="token comment">// 将 this 指向 obj</span></span>
+<span class="line">    <span class="token function">foo</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//打印结果：2</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="第一个参数的传递" tabindex="-1"><a class="header-anchor" href="#第一个参数的传递"><span>第一个参数的传递</span></a></h3>
+<p>1、thisObj不传或者为null、undefined时，函数中的this会指向window对象（非严格模式）。</p>
+<p>2、传递一个别的函数名时，函数中的this将指向这个<strong>函数的引用</strong>。</p>
+<p>3、传递的值为数字、布尔值、字符串时，this会指向这些基本类型的包装对象Number、Boolean、String。</p>
+<p>4、传递一个对象时，函数中的this则指向传递的这个对象。</p>
+<h3 id="call-和apply-的区别" tabindex="-1"><a class="header-anchor" href="#call-和apply-的区别"><span>call()和apply()的区别</span></a></h3>
+<p>call()和apply()方法都可以将实参在对象之后依次传递，但是apply()方法需要将实参封装到一个<strong>数组</strong>中统一传递（即使只有实参只有一个，也要放到数组中）。</p>
+<p>比如针对下面这样的代码：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line">    <span class="token keyword">var</span> persion1 <span class="token operator">=</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"小王"</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token literal-property property">gender</span><span class="token operator">:</span> <span class="token string">"男"</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">24</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token function-variable function">say</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">school<span class="token punctuation">,</span> grade</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">            <span class="token function">alert</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">" , "</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>gender <span class="token operator">+</span> <span class="token string">" ,今年"</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">+</span> <span class="token string">" ,在"</span> <span class="token operator">+</span> school <span class="token operator">+</span> <span class="token string">"上"</span> <span class="token operator">+</span> grade<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">        <span class="token punctuation">}</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line">    <span class="token keyword">var</span> person2 <span class="token operator">=</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"小红"</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token literal-property property">gender</span><span class="token operator">:</span> <span class="token string">"女"</span><span class="token punctuation">,</span></span>
+<span class="line">        <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">18</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>如果是通过call的参数进行传参，是这样的：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line">	persion1<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>persion2<span class="token punctuation">,</span> <span class="token string">"实验小学"</span><span class="token punctuation">,</span> <span class="token string">"六年级"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>如果是通过apply的参数进行传参，是这样的：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line">	persion1<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>persion2<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"实验小学"</span><span class="token punctuation">,</span> <span class="token string">"六年级"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>看到区别了吗，call后面的实参与say方法中是一一对应的，而apply传实参时，要封装成一个数组，数组中的元素是和say方法中一一对应的，这就是两者最大的区别。</p>
+<h3 id="call-和apply-的作用" tabindex="-1"><a class="header-anchor" href="#call-和apply-的作用"><span>call()和apply()的作用</span></a></h3>
+<ul>
+<li>
+<p>改变this的指向</p>
+</li>
+<li>
+<p>实现继承。Father.call(this)</p>
+</li>
+</ul>
+<h2 id="bind" tabindex="-1"><a class="header-anchor" href="#bind"><span>bind()</span></a></h2>
+<ul>
+<li>
+<p>都能改变this的指向</p>
+</li>
+<li>
+<p>call()/apply()是<strong>立即调用函数</strong></p>
+</li>
+<li>
+<p>bind()是将函数返回，因此后面还需要加<code v-pre>()</code>才能调用。</p>
+</li>
+</ul>
+<p>bind()传参的方式与call()相同。</p>
+<p>参考链接：</p>
+<ul>
+<li>
+<p><a href="https://www.jianshu.com/p/56a9c2d11adc" target="_blank" rel="noopener noreferrer">https://www.jianshu.com/p/56a9c2d11adc</a></p>
+</li>
+<li>
+<p><a href="https://github.com/lin-xin/blog/issues/7" target="_blank" rel="noopener noreferrer">https://github.com/lin-xin/blog/issues/7</a></p>
+</li>
+<li>
+<p><a href="https://segmentfault.com/a/1190000007402815" target="_blank" rel="noopener noreferrer">https://segmentfault.com/a/1190000007402815</a></p>
+</li>
+<li>
+<p><a href="http://www.xiaoxiaohan.com/js/38.html" target="_blank" rel="noopener noreferrer">JS中改变this指向的方法</a></p>
+</li>
+</ul>
+</div></template>
+
+

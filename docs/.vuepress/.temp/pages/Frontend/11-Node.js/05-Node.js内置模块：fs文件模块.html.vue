@@ -1,0 +1,321 @@
+<template><div><h2 id="node-js-的官方api文档" tabindex="-1"><a class="header-anchor" href="#node-js-的官方api文档"><span>Node.js 的官方API文档</span></a></h2>
+<ul>
+<li>
+<p>Node.js 的API文档（英文）： <a href="https://nodejs.org/docs/latest-v8.x/api/index.html" target="_blank" rel="noopener noreferrer">https://nodejs.org/docs/latest-v8.x/api/index.html</a></p>
+</li>
+<li>
+<p>Node.js 的API文档（中文）：<a href="http://nodejs.cn/api/" target="_blank" rel="noopener noreferrer">http://nodejs.cn/api/</a></p>
+</li>
+</ul>
+<p>关于 Node.js 的内置模块和常见API，可以看官方文档。</p>
+<p>查阅文档时，稳定指数如下：</p>
+<ul>
+<li>
+<p>红色：废弃。</p>
+</li>
+<li>
+<p>橙色：实验。表示当前版本可用，其他版本不确定。也许不向下兼容，建议不要在生产环境中使用该特性。</p>
+</li>
+<li>
+<p>绿色：稳定。与 npm 生态系统的兼容性是最高的优先级。</p>
+</li>
+</ul>
+<h2 id="node-js-中模块的分类" tabindex="-1"><a class="header-anchor" href="#node-js-中模块的分类"><span>Node.js 中模块的分类</span></a></h2>
+<p>Node.js 应用由模块组成，采用 CommonJS 模块规范。Node.js中的模块分为三种：</p>
+<ul>
+<li>
+<p>内置模块</p>
+</li>
+<li>
+<p>第三方模块</p>
+</li>
+<li>
+<p>自定义模块</p>
+</li>
+</ul>
+<p>下面简单介绍一下。</p>
+<h3 id="_1、内置模块" tabindex="-1"><a class="header-anchor" href="#_1、内置模块"><span>1、内置模块</span></a></h3>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> process <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'process'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>version<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'../'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>require方法用于加载模块。</p>
+<p>常见的内置模块包括：</p>
+<ul>
+<li>
+<p>FS：文件系统模块</p>
+</li>
+<li>
+<p>path：路径模块</p>
+</li>
+<li>
+<p>OS：操作系统相关</p>
+</li>
+<li>
+<p>net：网络相关</p>
+</li>
+<li>
+<p>http</p>
+</li>
+<li>
+<p>...</p>
+</li>
+</ul>
+<p>你可能会有疑问：Node.js 这么牛吗？还能直接和操作系统做交互？</p>
+<p>带着这个疑问，我们不妨简单看看 Node.js 的源码，以 os 模块举例：</p>
+<ul>
+<li>
+<p>打开os模块的源码：<a href="https://github.com/nodejs/node/blob/master/lib/os.js" target="_blank" rel="noopener noreferrer">https://github.com/nodejs/node/blob/master/lib/os.js</a>，翻到最底部，找到 <code v-pre>cpus</code>这个方法</p>
+</li>
+<li>
+<p>进而找到 <code v-pre>getCPUs()</code></p>
+</li>
+<li>
+<p>internalBinding('os')：通过 internalBinding 可以调用系统底层的方法。internalBinding 主要是 JS 虚拟机在做的事情。</p>
+</li>
+<li>
+<p><code v-pre>internalBinding('os')</code> 的实现，在 <a href="https://github.com/nodejs/node/blob/master/src/node_os.cc" target="_blank" rel="noopener noreferrer">https://github.com/nodejs/node/blob/master/src/node_os.cc</a> 里，里面都是 C++ 的代码。比如有一个<code v-pre>getCPUs</code>方法。</p>
+</li>
+</ul>
+<p>现在你知道了，JS本身是没有能力获取底层系统资源的，这一切都是 JS虚拟机在和底层做交互，然后通过 JS 的表现形式，暴露给应用层。</p>
+<p>另外，还有很多库，是直接使用C/++编写的，通过编译之后，再提供给 JS 应用层调用，或者直接提供给 Node.js层使用。</p>
+<p><strong>所有的编程语言底层都会回归C/C++</strong>，甚至是汇编语言。</p>
+<h3 id="_2、require-加载第三方包的机制" tabindex="-1"><a class="header-anchor" href="#_2、require-加载第三方包的机制"><span>2、require 加载第三方包的机制</span></a></h3>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>require 加载第三方包的机制：</p>
+<p>（1）第三方包安装好后，这个包一般会存放在当前项目的 node_modules 文件夹中。我们找到这个包的 package.json 文件，并且找到里面的main属性对应的入口模块，这个入口模块就是这个包的入口文件。</p>
+<p>（2）如果第三方包中没有找到package.json文件，或者package.json文件中没有main属性，则默认加载第三方包中的index.js文件。</p>
+<p>（3）如果在 node_modules 文件夹中没有找到这个包，或者以上所有情况都没有找到，则会向上一级父级目录下查找node_modules文件夹，查找规则如上一致。</p>
+<p>（4）如果一直找到该模块的磁盘根路径都没有找到，则会报错：can not find module xxx。</p>
+<h3 id="_3、自定义模块-module" tabindex="-1"><a class="header-anchor" href="#_3、自定义模块-module"><span>3、自定义模块（module）：</span></a></h3>
+<p>每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见。</p>
+<p>举例：</p>
+<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">var example = require('./example.js');</span>
+<span class="line">console.log(example.x); // 5</span>
+<span class="line">console.log(example.addX(1)); // 6</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="读取文件" tabindex="-1"><a class="header-anchor" href="#读取文件"><span>读取文件</span></a></h2>
+<p>今天这篇文章，重点讲一下 Node 内置模块中的 <strong>fs（文件处理模块）</strong>。</p>
+<p>在使用文件模块之前，记得先导入：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token comment">// 导入文件模块</span></span>
+<span class="line"><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><p>fs 的英文全称是 File System。fs 模块提供了很多 api 方法，我们首先应该学习的方法是<strong>文件读取</strong>。</p>
+<p>Node中文件读取的方式主要有以下几种。</p>
+<h3 id="异步读取文件-fs-readfile" tabindex="-1"><a class="header-anchor" href="#异步读取文件-fs-readfile"><span>异步读取文件 fs.readFile()</span></a></h3>
+<p>语法格式：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line">fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>file<span class="token punctuation">[</span><span class="token punctuation">,</span> options<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token function">callback</span><span class="token punctuation">(</span>error<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>代码举例：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'hello.txt'</span><span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token comment">// 失败</span></span>
+<span class="line">        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span></span>
+<span class="line">    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token comment">// 成功</span></span>
+<span class="line">        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'异步读取数据：'</span> <span class="token operator">+</span> data2<span class="token punctuation">)</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>如果需要嵌套读取多个文件，可以用 promise 或者 async ... await 进行封装。代码举例如下。</p>
+<h3 id="promise-封装-fs-readfile" tabindex="-1"><a class="header-anchor" href="#promise-封装-fs-readfile"><span>promise 封装 fs.readFile()</span></a></h3>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">function</span> <span class="token function">fsRead</span><span class="token punctuation">(</span><span class="token parameter">path</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">        fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">flag</span><span class="token operator">:</span> <span class="token string">'r'</span><span class="token punctuation">,</span> <span class="token literal-property property">encoding</span><span class="token operator">:</span> <span class="token string">"utf-8"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">            <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">                <span class="token comment">//失败执行的内容</span></span>
+<span class="line">                <span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span></span>
+<span class="line">            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span></span>
+<span class="line">                <span class="token comment">//成功执行的内容</span></span>
+<span class="line">                <span class="token function">resolve</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span></span>
+<span class="line">            <span class="token punctuation">}</span></span>
+<span class="line">        <span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line">    <span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">var</span> promise1 <span class="token operator">=</span> <span class="token function">fsRead</span><span class="token punctuation">(</span><span class="token string">'hello1.txt'</span><span class="token punctuation">)</span></span>
+<span class="line">promise1<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res1</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res1<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token keyword">return</span> <span class="token function">fsRead</span><span class="token punctuation">(</span><span class="token string">'hello2.txt'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res2</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res2<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token keyword">return</span> <span class="token function">fsRead</span><span class="token punctuation">(</span><span class="token string">'hello3.txt'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res3</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="async-await-封装-fs-readfile" tabindex="-1"><a class="header-anchor" href="#async-await-封装-fs-readfile"><span>async ... await 封装 fs.readFile()</span></a></h3>
+<p>这个写法更为简洁，推荐。</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">function</span> <span class="token function">fsRead</span><span class="token punctuation">(</span><span class="token parameter">path</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">        fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">flag</span><span class="token operator">:</span> <span class="token string">'r'</span><span class="token punctuation">,</span> <span class="token literal-property property">encoding</span><span class="token operator">:</span> <span class="token string">"utf-8"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">            <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">                <span class="token comment">//失败执行的内容</span></span>
+<span class="line">                <span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span></span>
+<span class="line">            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span></span>
+<span class="line">                <span class="token comment">//成功执行的内容</span></span>
+<span class="line">                <span class="token function">resolve</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span></span>
+<span class="line">            <span class="token punctuation">}</span></span>
+<span class="line">        <span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line">    <span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">ReadList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">var</span> res1 <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fsRead</span><span class="token punctuation">(</span><span class="token string">'hello1.txt'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token keyword">var</span> res2 <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fsRead</span><span class="token punctuation">(</span><span class="token string">'hello2.txt'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token keyword">var</span> res3 <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fsRead</span><span class="token punctuation">(</span><span class="token string">'hello3.txt'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">// 执行方法</span></span>
+<span class="line"><span class="token function">ReadList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="同步读取文件-fs-readfilesync" tabindex="-1"><a class="header-anchor" href="#同步读取文件-fs-readfilesync"><span>同步读取文件 fs.readFileSync()</span></a></h3>
+<p>语法格式：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line">fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span>file<span class="token punctuation">[</span><span class="token punctuation">,</span> options<span class="token punctuation">]</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>代码举例：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">try</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token keyword">const</span> data <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'hello.txt'</span><span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span> <span class="token keyword">catch</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token comment">// 文件不存在，或者权限错误</span></span>
+<span class="line">  <span class="token keyword">throw</span> e<span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="node-js-中的同步和异步的区别" tabindex="-1"><a class="header-anchor" href="#node-js-中的同步和异步的区别"><span>Node.js 中的同步和异步的区别</span></a></h3>
+<p>fs模块对文件的几乎所有操作都有同步和异步两种形式。例如：readFile() 和 readFileSync()。</p>
+<p>区别：</p>
+<ul>
+<li>
+<p>同步调用会阻塞代码的执行，异步则不会。</p>
+</li>
+<li>
+<p>异步调用会将 读取任务 下达到任务队列，直到任务执行完成才会回调。</p>
+</li>
+<li>
+<p>异常处理方面：同步必须使用 try catch 方式，异步可以通过回调函数的第一个参数。【重要】</p>
+</li>
+</ul>
+<h2 id="写入文件" tabindex="-1"><a class="header-anchor" href="#写入文件"><span>写入文件</span></a></h2>
+<p>语法格式：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line">fs<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>fd<span class="token punctuation">,</span> string<span class="token punctuation">[</span><span class="token punctuation">,</span> position<span class="token punctuation">[</span><span class="token punctuation">,</span> encoding<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><p>async ... await 封装：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">let</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span></span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">function</span> <span class="token function">writeFs</span><span class="token punctuation">(</span><span class="token parameter">path<span class="token punctuation">,</span> content</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> content<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">flag</span><span class="token operator">:</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token literal-property property">encoding</span><span class="token operator">:</span> <span class="token string">"utf-8"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">            <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">                <span class="token comment">//console.log("写入内容出错")</span></span>
+<span class="line">                <span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span></span>
+<span class="line">            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span></span>
+<span class="line">                <span class="token function">resolve</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span></span>
+<span class="line">                <span class="token comment">//console.log("写入内容成功")</span></span>
+<span class="line">            <span class="token punctuation">}</span></span>
+<span class="line">        <span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line">    <span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">writeList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">await</span> <span class="token function">writeFs</span><span class="token punctuation">(</span><span class="token string">'1.html'</span><span class="token punctuation">,</span> <span class="token string">"&lt;h1>qianguyihao&lt;/h1>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token keyword">await</span> <span class="token function">writeFs</span><span class="token punctuation">(</span><span class="token string">'2.html'</span><span class="token punctuation">,</span> <span class="token string">"&lt;h1>hello world&lt;/h1>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token keyword">await</span> <span class="token function">writeFs</span><span class="token punctuation">(</span><span class="token string">'3.html'</span><span class="token punctuation">,</span> <span class="token string">"&lt;h1>永不止步&lt;/h1>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token function">writeList</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="删除文件" tabindex="-1"><a class="header-anchor" href="#删除文件"><span>删除文件</span></a></h2>
+<p>语法格式：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line">fs<span class="token punctuation">.</span><span class="token function">unlink</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> callback<span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>参数说明：</p>
+<ul>
+<li>path：文件路径。</li>
+<li>callback：回调函数。</li>
+</ul>
+<p>代码举例：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line">fs<span class="token punctuation">.</span><span class="token function">unlink</span><span class="token punctuation">(</span><span class="token string">'path/file.txt'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token keyword">throw</span> err<span class="token punctuation">;</span></span>
+<span class="line">    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'文件删除成功'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>备注：<code v-pre>fs.unlink()</code> 不能用于删除目录。 如果要删除目录，可以使用 <code v-pre>fs.rmdir()</code>。</p>
+<h2 id="buffer" tabindex="-1"><a class="header-anchor" href="#buffer"><span>Buffer</span></a></h2>
+<p>通过 Buffer 开辟的内存空间，都是连续的内存空间，所以效率比较高。</p>
+<p>代码举例1：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"></span>
+<span class="line"><span class="token comment">// 将字符串转成 buffer 对象</span></span>
+<span class="line"><span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token string">'qianguyihao'</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token keyword">let</span> buffer <span class="token operator">=</span> Buffer<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出16进制编码</span></span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>buffer<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出字符串：qianguyihao</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>代码举例2：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token comment">// 从内存中开辟一个新的缓冲区</span></span>
+<span class="line"><span class="token keyword">let</span> buffer <span class="token operator">=</span> Buffer<span class="token punctuation">.</span><span class="token function">alloc</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">buffer<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'a'</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="读取目录" tabindex="-1"><a class="header-anchor" href="#读取目录"><span>读取目录</span></a></h2>
+<p>语法格式：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line">fs<span class="token punctuation">.</span><span class="token function">mkdir</span><span class="token punctuation">(</span>path<span class="token punctuation">[</span><span class="token punctuation">,</span> options<span class="token punctuation">]</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>参数说明：</p>
+<ul>
+<li>
+<p>path：文件路径。</p>
+</li>
+<li>
+<p>options参数可以是：</p>
+<ul>
+<li>recursive：是否以递归的方式创建目录，默认为 false。</li>
+<li>mode：设置目录权限，默认为 0777。</li>
+</ul>
+</li>
+</ul>
+<p>代码举例：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"fs"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">​</span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"查看 /tmp 目录"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">fs<span class="token punctuation">.</span><span class="token function">readdir</span><span class="token punctuation">(</span><span class="token string">"/tmp/"</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> files</span><span class="token punctuation">)</span><span class="token punctuation">{</span></span>
+<span class="line">   <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">       <span class="token keyword">return</span> console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">   <span class="token punctuation">}</span></span>
+<span class="line">   files<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">file</span><span class="token punctuation">)</span><span class="token punctuation">{</span></span>
+<span class="line">       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> file <span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>其他的还有：（暂略）</p>
+<ul>
+<li>
+<p>删除目录</p>
+</li>
+<li>
+<p>输入输出</p>
+</li>
+</ul>
+</div></template>
+
+

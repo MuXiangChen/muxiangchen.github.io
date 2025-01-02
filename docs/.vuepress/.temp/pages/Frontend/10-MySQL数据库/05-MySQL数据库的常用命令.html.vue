@@ -1,0 +1,262 @@
+<template><div><h2 id="mysql-的一些简单命令" tabindex="-1"><a class="header-anchor" href="#mysql-的一些简单命令"><span>MySQL 的一些简单命令</span></a></h2>
+<p>我们可以在 Navicat Premium 软件中，创建数据库和表，然后输入查询命令来查询数据。选择菜单栏「查询-&gt;新建查询-&gt;输入 sql 命令-&gt;运行」即可，效果如下：</p>
+<p><img src="https://img.smyhvae.com/20200417_1750.png" alt=""></p>
+<p>我们还可以直接在终端输入命令行来操作。</p>
+<p>注意，在 Mac 终端执行 sql 命令时，命令的末尾必须加上<code v-pre>;</code>（英文格式的分号）。效果如下：</p>
+<p><img src="https://img.smyhvae.com/20200417_1700.png" alt=""></p>
+<p>MySQL 命令行的一些简单命令如下。</p>
+<p><strong>以 root 身份进入命令行</strong>：</p>
+<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">mysql -u root -p</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p><strong>查看有哪些数据库</strong>：</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">show</span> <span class="token keyword">databases</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p><strong>选择进入指定的数据库</strong>：</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">use</span> xxx_database<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 举例</span></span>
+<span class="line"><span class="token keyword">use</span> qianguyihao_database<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>在当前数据库中，查看有哪些表</strong>：</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">show</span> <span class="token keyword">tables</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p><strong>在当前数据库中，查询指定表的全部数据</strong>：</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> xxx_table<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 举例</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> qianguyihao_student_table</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>删除指定的表</strong>：</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">drop</span> <span class="token keyword">table</span> xxx<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 举例</span></span>
+<span class="line"><span class="token keyword">drop</span> <span class="token keyword">table</span> qianguyihao_student_table<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>删除指定的数据库</strong>：</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">drop</span> <span class="token keyword">database</span> qianguyihao_student_table<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p><strong>创建一个数据库</strong>：</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">create</span> <span class="token keyword">database</span> qianguyihao_database2<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h2 id="where-条件查询" tabindex="-1"><a class="header-anchor" href="#where-条件查询"><span>where 条件查询</span></a></h2>
+<p>使用 <code v-pre>where</code> 子句可以对表中的数据进行筛选，结果为 true 的行会出现在查询结果中。</p>
+<p>语法格式如下：</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> 表名 <span class="token keyword">where</span> 条件<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>上面的语法格式中，<code v-pre>条件</code> 具体要怎么写呢？这个可能有很多种情况。我们继续往下看。</p>
+<h3 id="比较运算符" tabindex="-1"><a class="header-anchor" href="#比较运算符"><span>比较运算符</span></a></h3>
+<ul>
+<li><code v-pre>=</code> 等于</li>
+<li><code v-pre>&gt;</code> 大于</li>
+<li><code v-pre>&gt;=</code> 大于等于</li>
+<li><code v-pre>&lt;</code> 小于</li>
+<li><code v-pre>&lt;=</code> 小于等于</li>
+<li><code v-pre>!=</code>：不等于</li>
+<li><code v-pre>age &gt; 20</code>：查询 age 大于 30 的数据</li>
+</ul>
+<p><strong>举例</strong>：</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token comment"># 查询 age 大于 20 的数据</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> qianguyihao_table <span class="token keyword">WHERE</span> age <span class="token operator">></span> <span class="token number">20</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="逻辑运算符" tabindex="-1"><a class="header-anchor" href="#逻辑运算符"><span>逻辑运算符</span></a></h3>
+<ul>
+<li>
+<p>AND</p>
+</li>
+<li>
+<p>OR</p>
+</li>
+<li>
+<p>NOT</p>
+</li>
+</ul>
+<p><strong>举例</strong>：</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token comment"># 查询 age 在20至30之间的数据</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> qianguyihao_table <span class="token keyword">WHERE</span> age <span class="token operator">BETWEEN</span> <span class="token number">20</span> <span class="token operator">AND</span> <span class="token number">30</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="范围查询" tabindex="-1"><a class="header-anchor" href="#范围查询"><span>范围查询</span></a></h3>
+<ul>
+<li>
+<p><code v-pre>in</code> 表示在一个非连续的范围内。</p>
+</li>
+<li>
+<p><code v-pre>between ... and ...</code> 表示在一个连续的范围内</p>
+</li>
+</ul>
+<p>举例：</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token comment"># 查询 name 为 千古壹号 或者 许嵩的数据</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> qianguyihao_table <span class="token keyword">WHERE</span> name <span class="token operator">IN</span> <span class="token punctuation">[</span><span class="token string">'千古壹号'</span><span class="token punctuation">,</span> <span class="token string">'许嵩'</span><span class="token punctuation">]</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> qianguyihao_table <span class="token keyword">WHERE</span> age <span class="token operator">BETWEEN</span> <span class="token number">20</span> <span class="token operator">AND</span> <span class="token number">30</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="模糊查询" tabindex="-1"><a class="header-anchor" href="#模糊查询"><span>模糊查询</span></a></h3>
+<ul>
+<li><code v-pre>like</code>
+<ul>
+<li><code v-pre>%</code> 表示任意多个任意字符</li>
+<li><code v-pre>_</code> 表示一个任意字符</li>
+</ul>
+</li>
+</ul>
+<p><code v-pre>%</code> 符号举例：</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token comment"># 查询标题中包含“前端”这两个字的数据（“前端”这两个字的前后可能都有内容）</span></span>
+<span class="line"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> qianguyihao_table <span class="token keyword">where</span> <span class="token identifier"><span class="token punctuation">`</span>title<span class="token punctuation">`</span></span> <span class="token operator">like</span> <span class="token string">"%前端%"</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 查询标题以“前端”开头的数据</span></span>
+<span class="line"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> qianguyihao_table <span class="token keyword">where</span> <span class="token identifier"><span class="token punctuation">`</span>title<span class="token punctuation">`</span></span> <span class="token operator">like</span> <span class="token string">"前端%"</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>_</code>符号举例：</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token comment"># 查询标题，查询条件是：标题中至少有五个字符，而且，这五个字符中，前两个字符一定是“千古”开头的。</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> qianguyihao_table <span class="token keyword">WHERE</span> <span class="token identifier"><span class="token punctuation">`</span>title<span class="token punctuation">`</span></span> <span class="token operator">LIKE</span> <span class="token string">"千古___"</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="null-的判断" tabindex="-1"><a class="header-anchor" href="#null-的判断"><span>NULL 的判断</span></a></h3>
+<ul>
+<li>
+<p><code v-pre>is null</code> 判断为空</p>
+</li>
+<li>
+<p><code v-pre>is not null</code> 判断为非空</p>
+</li>
+</ul>
+<p>注意，<code v-pre>is null</code> 和<strong>空字符串</strong><code v-pre>&quot;&quot;</code> 是有区别的。学过 js 基础之后，你应该知道：空字符串并非 null，只不过是里面的值为空而已；空字符串也是会占有内存空间的。</p>
+<p>举例：</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> qianguyihao_table <span class="token keyword">where</span> name <span class="token operator">is</span> <span class="token operator">not</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="join-联表查询" tabindex="-1"><a class="header-anchor" href="#join-联表查询"><span>join 联表查询</span></a></h2>
+<h3 id="联表查询命令" tabindex="-1"><a class="header-anchor" href="#联表查询命令"><span>联表查询命令</span></a></h3>
+<ul>
+<li>
+<p><code v-pre>tableA inner join tableB</code>：表 A 与表 B 匹配的行会出现在结果中。</p>
+</li>
+<li>
+<p><code v-pre>tableA left join tableB</code>：表 A 与表 B 匹配的行会出现在结果中。表 A 中独有的数据，对应表 B 中用 null 填充。</p>
+</li>
+<li>
+<p><code v-pre>tableA right join tableB</code>：表 A 与表 B 匹配的行会出现在结果中。表 B 中独有的数据，对应表 A 中用 null 填充。</p>
+</li>
+</ul>
+<p>光是这样看，不好理解，我们来举个例子。</p>
+<h3 id="举例" tabindex="-1"><a class="header-anchor" href="#举例"><span>举例</span></a></h3>
+<p>现在有下面这两张表：作者表 author、图书表 book。</p>
+<p><strong>表 1</strong>、作者表 author：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">id</th>
+<th style="text-align:left">authorId</th>
+<th style="text-align:left">authorName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">11</td>
+<td style="text-align:left">王小波</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">12</td>
+<td style="text-align:left">吴军</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">88</td>
+<td style="text-align:left">千古壹号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>表 2</strong>、图书表 book：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">id</th>
+<th style="text-align:left">bookId</th>
+<th style="text-align:left">bookName</th>
+<th>authorId</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">201</td>
+<td style="text-align:left">黄金时代</td>
+<td>11</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">202</td>
+<td style="text-align:left">白银时代</td>
+<td>11</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">203</td>
+<td style="text-align:left">青铜时代</td>
+<td>11</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left">204</td>
+<td style="text-align:left">浪潮之巅</td>
+<td>12</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left">205</td>
+<td style="text-align:left">硅谷之谜</td>
+<td>12</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left">206</td>
+<td style="text-align:left">数学之美</td>
+<td>12</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left">777</td>
+<td style="text-align:left">设计心理学</td>
+<td>99</td>
+</tr>
+</tbody>
+</table>
+<p>注意，表2中的每本图书都有对应的 authorId，这个 authorId 就是对应表1中的 authorId。<strong>通过 authorId 把两张表关联起来</strong>。</p>
+<p>通过联表查询上面的两张表，我们来对比一下查询结果。</p>
+<p><strong>情况 0</strong>：（inner join）</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> author <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> book<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>查询结果：</p>
+<p><img src="https://img.smyhvae.com/20200418_2300.png" alt=""></p>
+<p>上面这种查询，没有意义，因为没有加任何查询条件。</p>
+<p><strong>情况 1</strong>：（inner join）</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> author <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> book <span class="token keyword">ON</span> author<span class="token punctuation">.</span>authorId <span class="token operator">=</span> book<span class="token punctuation">.</span>authorId<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>查询结果：</p>
+<p><img src="https://img.smyhvae.com/20200418_2305.png" alt=""></p>
+<p>上面这行命令，跟下面这行命令等价：</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> author<span class="token punctuation">,</span> book <span class="token keyword">WHERE</span> author<span class="token punctuation">.</span>authorId <span class="token operator">=</span> book<span class="token punctuation">.</span>authorId<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p><strong>情况 2</strong>：（left join）</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> author <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> book <span class="token keyword">ON</span> author<span class="token punctuation">.</span>authorId <span class="token operator">=</span> book<span class="token punctuation">.</span>authorId<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>查询结果：</p>
+<p><img src="https://img.smyhvae.com/20200418_2310.png" alt=""></p>
+<p><strong>情况 3</strong>：（right join）</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> author <span class="token keyword">RIGHT</span> <span class="token keyword">JOIN</span> book <span class="token keyword">ON</span> author<span class="token punctuation">.</span>authorId <span class="token operator">=</span> book<span class="token punctuation">.</span>authorId<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>查询结果：</p>
+<p><img src="https://img.smyhvae.com/20200418_2315.png" alt=""></p>
+<h3 id="参考链接" tabindex="-1"><a class="header-anchor" href="#参考链接"><span>参考链接</span></a></h3>
+<ul>
+<li><a href="https://blog.csdn.net/qmhball/article/details/8000003" target="_blank" rel="noopener noreferrer">Mysql 联表查询</a></li>
+</ul>
+<h2 id="自关联查询" tabindex="-1"><a class="header-anchor" href="#自关联查询"><span>自关联查询</span></a></h2>
+<p>涉及到层级关系时可以用自关联查询。</p>
+<h2 id="子查询" tabindex="-1"><a class="header-anchor" href="#子查询"><span>子查询</span></a></h2>
+<p>当一个查询结果是另一个查询的条件时，这个查询称之为子查询。</p>
+</div></template>
+
+

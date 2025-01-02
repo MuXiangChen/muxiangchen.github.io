@@ -1,0 +1,190 @@
+<template><div><h2 id="本文主要内容" tabindex="-1"><a class="header-anchor" href="#本文主要内容"><span>本文主要内容</span></a></h2>
+<p>排版标签：</p>
+<ul>
+<li>
+<p><code v-pre>&lt;h1&gt;</code></p>
+</li>
+<li>
+<p><code v-pre>&lt;p&gt;</code></p>
+</li>
+<li>
+<p><code v-pre>&lt;hr /&gt;</code></p>
+</li>
+<li>
+<p><code v-pre>&lt;br /&gt;</code></p>
+</li>
+<li>
+<p><code v-pre>&lt;div&gt;</code></p>
+</li>
+<li>
+<p><code v-pre>&lt;span&gt;</code></p>
+</li>
+<li>
+<p><code v-pre>&lt;center&gt;</code></p>
+</li>
+<li>
+<p><code v-pre>&lt;pre&gt;</code></p>
+</li>
+</ul>
+<p>下面来详细介绍一下排版标签。</p>
+<h2 id="标题标签" tabindex="-1"><a class="header-anchor" href="#标题标签"><span>标题标签</span></a></h2>
+<p>标题使用<code v-pre>&lt;h1&gt;</code>至<code v-pre>&lt;h6&gt;</code>标签进行定义。<code v-pre>&lt;h1&gt;</code>定义最大的标题，<code v-pre>&lt;h6&gt;</code>定义最小的标题。具有align属性，属性值可以是：left、center、right。</p>
+<p>代码举例：</p>
+<div class="language-html line-numbers-mode" data-highlighter="prismjs" data-ext="html" data-title="html"><pre v-pre><code><span class="line"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>H1：千古壹号，永不止步<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>H3：千古壹号，永不止步<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>H3：千古壹号，永不止步<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span><span class="token punctuation">></span></span>H4：千古壹号，永不止步<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h5</span><span class="token punctuation">></span></span>H5：千古壹号，永不止步<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h5</span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h6</span><span class="token punctuation">></span></span>H6：千古壹号，永不止步<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h6</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>效果演示：</p>
+<p><img src="http://img.smyhvae.com/20200402_1050.png" alt=""></p>
+<h2 id="html-注释" tabindex="-1"><a class="header-anchor" href="#html-注释"><span>HTML 注释</span></a></h2>
+<p>HTML 注释的格式如下：</p>
+<div class="language-html line-numbers-mode" data-highlighter="prismjs" data-ext="html" data-title="html"><pre v-pre><code><span class="line"><span class="token comment">&lt;!-- 我是 html 注释  --></span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h2 id="段落标签-p" tabindex="-1"><a class="header-anchor" href="#段落标签-p"><span>段落标签<code v-pre>&lt;p&gt;</code></span></a></h2>
+<p>段落，是英语“paragraph“缩写。</p>
+<p><strong>作用</strong>：可以把 HTML 文档分割为若干段落。在网页中如果要把文字有条理地显示出来，离不开段落标签。就如同我们平常写文章一样，整个网页也可以分为若干个段落。</p>
+<p>代码举例：</p>
+<div class="language-html line-numbers-mode" data-highlighter="prismjs" data-ext="html" data-title="html"><pre v-pre><code><span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>This is a paragraph<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>This is another paragraph<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><p>属性：</p>
+<ul>
+<li><code v-pre>align=&quot;属性值&quot;</code>：对齐方式。属性值包括left center right。</li>
+</ul>
+<p>属性举例：</p>
+<p><img src="http://img.smyhvae.com/2015-10-01-cnblogs_html166440-1dcd2ad6e6353559.png" alt="Paste_Image.png"></p>
+<p>HTML标签是分等级的，HTML将所有的标签分为两种：</p>
+<ul>
+<li>
+<p><strong>文本级标签</strong>：p、span、a、b、i、u、em。文本级标签里只能放<strong>文字、图片、表单元素</strong>。（a标签里不能放a和input）</p>
+</li>
+<li>
+<p><strong>容器级标签</strong>：div、h系列、li、dt、dd。容器级标签里可以放置任何东西。</p>
+</li>
+</ul>
+<p>从学习p的第一天开始，就要牢牢记住：<strong>p标签是一个文本级标签，p里面只能放文字、图片、表单元素</strong>。其他的一律不能放。</p>
+<p>错误写法：（尝试把 h 放到 p 里）</p>
+<div class="language-html line-numbers-mode" data-highlighter="prismjs" data-ext="html" data-title="html"><pre v-pre><code><span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span></span>
+<span class="line">		我是一个小段落</span>
+<span class="line">		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>我是一级标题<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>网页效果如下：</p>
+<p><img src="http://img.smyhvae.com/20170630_1102.png" alt=""></p>
+<p>上图显示，浏览器不允许你这么做，我们使用Chrome的F12审查元素发现，浏览器自己把p封闭掉了，不让你去包裹h1。</p>
+<p>PS：Chrome浏览器是HTML5支持度最好的浏览器。提供了非常好的开发工具，非常适合我们开发人员使用。审查元素功能的快捷键是F12。</p>
+<h2 id="水平线标签-hr" tabindex="-1"><a class="header-anchor" href="#水平线标签-hr"><span>水平线标签<code v-pre>&lt;hr /&gt;</code></span></a></h2>
+<blockquote>
+<p>horizontal 单词的发音：[ˌhɒrɪˈzɒntl]。</p>
+</blockquote>
+<p>水平分隔线（horizontal rule）可以在视觉上将文档分隔成各个部分。在网页中常常看到一些水平线将段落与段落之间隔开，使得文档结构清晰，层次分明。</p>
+<p>代码举例：</p>
+<div class="language-html line-numbers-mode" data-highlighter="prismjs" data-ext="html" data-title="html"><pre v-pre><code><span class="line"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>自古情深留不住<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span> <span class="token punctuation">/></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>总是套路得人心<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>运行效果：</p>
+<p><img src="http://img.smyhvae.com/20200401_1930.png" alt=""></p>
+<p>属性介绍：</p>
+<ul>
+<li><code v-pre>align=&quot;属性值&quot;</code>：设定线条置放位置。属性值可选择：left right center。</li>
+<li><code v-pre>size=&quot;2&quot; </code>：设定线条粗细。以像素为单位，内定为2。</li>
+<li><code v-pre>width=&quot;500&quot;</code>或<code v-pre>width=&quot;70%&quot;</code>：设定线条长度。可以是绝对值（单位是像素）或相对值。如果设置为相对值的话，内定为100%。</li>
+<li><code v-pre>color=&quot;#0000FF&quot;</code>：设置线条颜色。</li>
+<li><code v-pre>noshade</code>：不要阴影，即设定线条为平面显示。若没有这个属性则表明线条具阴影或立体。</li>
+</ul>
+<p>属性效果演示：</p>
+<p><img src="http://img.smyhvae.com/2015-10-01-cnblogs_html_05.png" alt="Paste_Image.png"></p>
+<h2 id="换行标签-br" tabindex="-1"><a class="header-anchor" href="#换行标签-br"><span>换行标签<code v-pre>&lt;br /&gt;</code></span></a></h2>
+<p>如果希望某段文本强制换行显示，就需要使用换行标签。</p>
+<div class="language-html line-numbers-mode" data-highlighter="prismjs" data-ext="html" data-title="html"><pre v-pre><code><span class="line">This <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/></span></span> is a para<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/></span></span>graph with line breaks</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>效果如下：</p>
+<p><img src="http://img.smyhvae.com/2015-10-01-cnblogs_html03.png" alt=""></p>
+<h2 id="div-和-span-标签" tabindex="-1"><a class="header-anchor" href="#div-和-span-标签"><span><code v-pre>&lt;div&gt;</code>和<code v-pre>&lt;span&gt;</code>标签</span></a></h2>
+<p>div和span是非常重要的标签，div的语义是division“分割”； span的语义就是span“范围、跨度”。想必你应该听说过“div + css”布局。</p>
+<h3 id="div和span的介绍" tabindex="-1"><a class="header-anchor" href="#div和span的介绍"><span>div和span的介绍</span></a></h3>
+<ul>
+<li>
+<p><strong>div标签</strong>：可以把标签中的内容分割为独立的区块。必须单独占据一行。</p>
+</li>
+<li>
+<p><strong>span标签</strong>：和div的作用一致，但不换行。</p>
+</li>
+</ul>
+<p>代码举例：</p>
+<p><img src="http://img.smyhvae.com/2015-10-01-cnblogs_html_08.png" alt="Paste_Image.png"></p>
+<p>div标签的属性：</p>
+<ul>
+<li><code v-pre>align=&quot;属性值&quot;</code>：设置块儿的位置。属性值可选择：left、right、 center。</li>
+</ul>
+<h3 id="div和span的区别" tabindex="-1"><a class="header-anchor" href="#div和span的区别"><span>div和span的区别</span></a></h3>
+<p><code v-pre>&lt;span&gt;</code>和<code v-pre>&lt;div&gt;</code>唯一的区别在于：<code v-pre>&lt;span&gt;</code>是不换行的，而<code v-pre>&lt;div&gt;</code>是换行的。</p>
+<p>如果单独在网页中插入这两个元素，不会对页面产生任何的影响。这两个元素是专门为定义CSS样式而生的。或者说，DIV+CSS来实现各种样式。</p>
+<p>div在浏览器中，默认是不会增加任何的效果的，但是语义变了，div中的所有元素是一个小区域。
+div标签是一个<strong>容器级</strong>标签，里面什么都能放，甚至可以放div自己。</p>
+<p>span也是表达“小区域、小跨度”的标签，但只是一个<strong>文本级</strong>的标签。
+就是说，span里面只能放置文字、图片、表单元素。 span里面不能放p、h、ul、dl、ol、div。</p>
+<p>span举例：</p>
+<div class="language-html line-numbers-mode" data-highlighter="prismjs" data-ext="html" data-title="html"><pre v-pre><code><span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span></span>
+<span class="line">	简介简介简介简介简介简介简介简介</span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span></span>
+<span class="line">		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>详细信息<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></span>
+<span class="line">		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>购买<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>div举例：</p>
+<div class="language-html line-numbers-mode" data-highlighter="prismjs" data-ext="html" data-title="html"><pre v-pre><code><span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>header<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>logo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>guanggao<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line">	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dongxi<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>footer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>我们亲切地称这种模式叫做“<strong>div+css</strong>”：<strong>div标签负责布局、结构、分块，css负责样式</strong>。</p>
+<h2 id="内容居中标签-center" tabindex="-1"><a class="header-anchor" href="#内容居中标签-center"><span>内容居中标签 <code v-pre>&lt;center&gt;</code></span></a></h2>
+<p>此时center代表是一个标签，而不是一个属性值了。只要是在这个标签里面的内容，都会居于浏览器的中间。
+效果演示：</p>
+<p><img src="http://img.smyhvae.com/2015-10-01-cnblogs_html_06.png" alt="Paste_Image.png"></p>
+<p>到了HTML5里面，center标签不建议使用，建议使用css布局来实现。</p>
+<h2 id="预定义-预格式化-标签-pre" tabindex="-1"><a class="header-anchor" href="#预定义-预格式化-标签-pre"><span>预定义（预格式化）标签<code v-pre>&lt;pre&gt;</code></span></a></h2>
+<p>含义：将保留标签内部所有的空白字符(空格、换行符)，原封不动地输出结果（告诉浏览器不要忽略空格和空行）。</p>
+<p>说明：真正排网页过程中，<code v-pre>&lt;pre&gt;</code>标签几乎用不着。
+效果演示：</p>
+<p><img src="http://img.smyhvae.com/2015-10-01-cnblogs_html_07.png" alt="Paste_Image.png"></p>
+<h2 id="我的公众号" tabindex="-1"><a class="header-anchor" href="#我的公众号"><span>我的公众号</span></a></h2>
+<p>想学习<strong>更多技能</strong>？不妨关注我的微信公众号：<strong>千古壹号</strong>（id：<code v-pre>qianguyihao</code>）。</p>
+<p>扫一扫，你将发现另一个全新的世界，而这将是一场美丽的意外：</p>
+<p><img src="https://img.smyhvae.com/20200102.png" alt=""></p>
+</div></template>
+
+

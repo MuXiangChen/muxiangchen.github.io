@@ -1,0 +1,211 @@
+<template><div><h2 id="前言" tabindex="-1"><a class="header-anchor" href="#前言"><span>前言</span></a></h2>
+<p>在 JavaScript 的编程中经常需要对数据进行复制，这就涉及到浅拷贝和深拷贝，是非常重要的概念。</p>
+<h2 id="浅拷贝" tabindex="-1"><a class="header-anchor" href="#浅拷贝"><span>浅拷贝</span></a></h2>
+<h3 id="概念" tabindex="-1"><a class="header-anchor" href="#概念"><span>概念</span></a></h3>
+<p>创建一个新的对象B，来接收你要重新复制的对象A的值：</p>
+<ul>
+<li>如果对象A里面的属性是基本类型，拷贝的是基本类型的值；</li>
+<li>但如果对象A里面的属性是引用类型，拷贝的是内存中的<strong>地址</strong>（不是拷贝<strong>值</strong>）。也就是说，拷贝后的内容和原始内容，指向的是同一个地址。如果一个对象的属性值发生了变化，另一个对象的属性值也会发生变化。</li>
+</ul>
+<p>浅拷贝在拷贝引用类型的数据时，只拷贝<strong>第一层</strong>的属性，再深层的属性无法进行拷贝。用一个成语形容叫“藕断丝连”。</p>
+<h2 id="深拷贝" tabindex="-1"><a class="header-anchor" href="#深拷贝"><span>深拷贝</span></a></h2>
+<h3 id="概念-1" tabindex="-1"><a class="header-anchor" href="#概念-1"><span>概念</span></a></h3>
+<p>创建一个新的对象B，来接收你要重新复制的对象A的值：</p>
+<ul>
+<li>在堆内存中开辟了一块全新的内存地址，将对象A的属性完全复制过来。</li>
+<li>这两个对象相互独立、互不影响，彻底实现了内存上的分离。</li>
+</ul>
+<p>下面讲一下实现深拷贝的几种方式。</p>
+<h3 id="方式1-json-stringify-和-json-parse" tabindex="-1"><a class="header-anchor" href="#方式1-json-stringify-和-json-parse"><span>方式1：JSON.stringify() 和 JSON.parse()</span></a></h3>
+<p>这是最简单的深拷贝方法，先把对象序列化成 json 字符串，然后将JSON 字符串生成一个新的对象。</p>
+<p>代码实现：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">let</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">a</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">b</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token punctuation">}</span></span>
+<span class="line"><span class="token keyword">let</span> str <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span>；</span>
+<span class="line"><span class="token keyword">let</span> obj2 <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span>；</span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">//{a:1,b:[1,2,3]}</span></span>
+<span class="line"></span>
+<span class="line">obj1<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">2</span>；</span>
+<span class="line">obj1<span class="token punctuation">.</span>b<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">//{a:2,b:[1,2,3,4]}</span></span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">//{a:1,b:[1,2,3]}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>方式1属于乞丐版。缺点是：</p>
+<p>（1）主要缺点：</p>
+<ul>
+<li>无法拷贝函数、undefined、symbol。经过 JSON.stringify 序列化之后的字符串中这个键值对会消失。</li>
+<li>无法拷贝 Map、Set；</li>
+<li>无法拷贝对象的循环引用，即 obj[key] = obj。</li>
+</ul>
+<p>（2）其他缺点：</p>
+<ul>
+<li>拷贝 Date 引用类型会变成字符串；</li>
+<li>拷贝 RegExp 引用类型会变成空对象；</li>
+<li>无法拷贝不可枚举的属性；</li>
+<li>无法拷贝对象的原型链；</li>
+<li>对象中含有 NaN、Infinity 以及 -Infinity，JSON 序列化的结果会变成 null；</li>
+</ul>
+<p>无法拷贝函数的代码举例：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token function-variable function">fn</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'qianguyihao'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span></span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// {"name":"qianguyihao"}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><p>无法拷贝循环引用的代码举例：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token function-variable function">fn</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'qianguyihao'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span></span>
+<span class="line">obj<span class="token punctuation">.</span>self <span class="token operator">=</span> obj<span class="token punctuation">;</span></span>
+<span class="line"><span class="token comment">/*</span>
+<span class="line">	控制台报错：</span>
+<span class="line">		Uncaught TypeError: Converting circular structure to JSON</span>
+<span class="line">		--> starting at object with constructor 'Object'</span>
+<span class="line">		--- property 'self' closes the circle</span>
+<span class="line">		at JSON.stringify (&lt;anonymous>)</span>
+<span class="line">*/</span></span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>小结：如果你的数据结构是简单的数据类型，使用方式1是最简单和快捷的选择；但如果数据类型稍微复杂一点，方式1 就不行了。</p>
+<h3 id="方式2-手写递归" tabindex="-1"><a class="header-anchor" href="#方式2-手写递归"><span>方式2：手写递归</span></a></h3>
+<p>如果只考虑简单的数组、对象，方式2是满足要求的。</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'qianguyihao'</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token literal-property property">address</span><span class="token operator">:</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token literal-property property">city</span><span class="token operator">:</span> <span class="token string">'shenzhen'</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">const</span> obj2 <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span></span>
+<span class="line">obj2<span class="token punctuation">.</span>address<span class="token punctuation">.</span>city <span class="token operator">=</span> <span class="token string">'beijing'</span></span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj1<span class="token punctuation">.</span>address<span class="token punctuation">.</span>city<span class="token punctuation">)</span></span>
+<span class="line"></span>
+<span class="line"><span class="token doc-comment comment">/**</span>
+<span class="line"> * 深拷贝</span>
+<span class="line"> * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span>Object<span class="token punctuation">}</span></span> <span class="token parameter">obj</span> 要拷贝的对象</span>
+<span class="line"> */</span></span>
+<span class="line"><span class="token keyword">function</span> <span class="token function">deepClone</span><span class="token punctuation">(</span><span class="token parameter">obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token comment">// 1、判断是值类型还是引用类型</span></span>
+<span class="line">    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> obj <span class="token operator">!==</span> <span class="token string">'object'</span> <span class="token operator">||</span> obj <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token comment">// obj 如果不是对象和数组，或者是 null，就直接return</span></span>
+<span class="line">        <span class="token keyword">return</span> obj</span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line">    <span class="token comment">// 2、判断是数组还是对象</span></span>
+<span class="line">    <span class="token comment">// 初始化返回结果：数组或者对象</span></span>
+<span class="line">    <span class="token keyword">let</span> result</span>
+<span class="line">    <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token keyword">instanceof</span> <span class="token class-name">Array</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></span>
+<span class="line">    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span></span>
+<span class="line">        result <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line">    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token comment">// 保证 key 不是原型的属性</span></span>
+<span class="line">        <span class="token keyword">if</span> <span class="token punctuation">(</span>obj<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">            <span class="token comment">// 3、递归【关键代码】</span></span>
+<span class="line">            result<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span></span>
+<span class="line">        <span class="token punctuation">}</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line">    <span class="token keyword">return</span> result</span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">let</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token literal-property property">a</span><span class="token operator">:</span><span class="token punctuation">{</span></span>
+<span class="line">    <span class="token literal-property property">b</span><span class="token operator">:</span><span class="token number">1</span></span>
+<span class="line">  <span class="token punctuation">}</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"><span class="token keyword">let</span> obj2 <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">obj1<span class="token punctuation">.</span>a<span class="token punctuation">.</span>b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span></span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">//  {a:{b:1}}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>上面的代码，还有一种写法，更容易理解：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"></span>
+<span class="line"><span class="token keyword">function</span> <span class="token function">deepClone</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">let</span> cloneObj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></span>
+<span class="line">    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>                 <span class="token comment">// 遍历</span></span>
+<span class="line">        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">===</span><span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        cloneObj<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment">// 是对象就再次调用该函数递归</span></span>
+<span class="line">        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span></span>
+<span class="line">        cloneObj<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span>  <span class="token comment">// 如果是基本类型，直接复制值</span></span>
+<span class="line">        <span class="token punctuation">}</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line">    <span class="token keyword">return</span> cloneObj</span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">let</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token literal-property property">a</span><span class="token operator">:</span><span class="token punctuation">{</span></span>
+<span class="line">        <span class="token literal-property property">b</span><span class="token operator">:</span><span class="token number">1</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"><span class="token keyword">let</span> obj2 <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">obj1<span class="token punctuation">.</span>a<span class="token punctuation">.</span>b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span></span>
+<span class="line">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">//  {a:{b:1}}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>方式2只考虑了 object 和 Array这种 对普通的引用类型的值，是属于比较基础的深拷贝。缺点是：</p>
+<p>（1）主要缺点：</p>
+<ul>
+<li>无法拷贝函数 Function。</li>
+<li>无法拷贝 Map、Set。</li>
+<li>无法拷贝对象的循环引用，即 obj[key] = obj。</li>
+</ul>
+<p>（2）其他缺点：</p>
+<ul>
+<li>无法拷贝不可枚举的属性以及 Symbol 类型。</li>
+<li>无法拷贝 Date、RegExp、Error 这样的引用类型。</li>
+</ul>
+<h3 id="方式3-改进版" tabindex="-1"><a class="header-anchor" href="#方式3-改进版"><span>方式3：改进版</span></a></h3>
+<p>针对上面几个问题，可以用如下几点改进：</p>
+<p>（1）针对能够遍历对象的不可枚举属性以及 Symbol 类型，我们可以使用 Reflect.ownKeys 方法；</p>
+<p>（2）当参数为 Date、RegExp 类型，则直接生成一个新的实例返回；</p>
+<p>（3）利用 Object 的 getOwnPropertyDescriptors 方法可以获得对象的所有属性，以及对应的特性，顺便结合 Object 的 create 方法创建一个新对象，并继承传入原对象的原型链；</p>
+<p>（4）利用 WeakMap 类型作为 Hash 表，因为 WeakMap 是弱引用类型，可以有效防止内存泄漏（你可以关注一下 Map 和 weakMap 的关键区别，这里要用 weakMap），作为检测循环引用很有帮助，如果存在循环，则引用直接返回 WeakMap 存储的值。</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token doc-comment comment">/**</span>
+<span class="line"> * 深拷贝</span>
+<span class="line"> * <span class="token keyword">@param</span> <span class="token parameter">obj</span> obj</span>
+<span class="line"> * <span class="token keyword">@param</span> <span class="token parameter">map</span> weakmap 为了避免循环引用</span>
+<span class="line"> */</span></span>
+<span class="line"><span class="token keyword">function</span> <span class="token function">cloneDeep</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> obj <span class="token operator">!==</span> <span class="token string">'object'</span> <span class="token operator">||</span> obj <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token keyword">return</span> obj</span>
+<span class="line"></span>
+<span class="line">    <span class="token comment">// 避免循环引用</span></span>
+<span class="line">    <span class="token keyword">const</span> objFromMap <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span></span>
+<span class="line">    <span class="token keyword">if</span> <span class="token punctuation">(</span>objFromMap<span class="token punctuation">)</span> <span class="token keyword">return</span> objFromMap</span>
+<span class="line"></span>
+<span class="line">    <span class="token keyword">let</span> target <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></span>
+<span class="line">    map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> target<span class="token punctuation">)</span></span>
+<span class="line"></span>
+<span class="line">    <span class="token comment">// Map</span></span>
+<span class="line">    <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token keyword">instanceof</span> <span class="token class-name">Map</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        target <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span>
+<span class="line">        obj<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">v<span class="token punctuation">,</span> k</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">            <span class="token keyword">const</span> v1 <span class="token operator">=</span> <span class="token function">cloneDeep</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> map<span class="token punctuation">)</span></span>
+<span class="line">            <span class="token keyword">const</span> k1 <span class="token operator">=</span> <span class="token function">cloneDeep</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> map<span class="token punctuation">)</span></span>
+<span class="line">            target<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>k1<span class="token punctuation">,</span> v1<span class="token punctuation">)</span></span>
+<span class="line">        <span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line">    <span class="token comment">// Set</span></span>
+<span class="line">    <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token keyword">instanceof</span> <span class="token class-name">Set</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        target <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span>
+<span class="line">        obj<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">v</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span>
+<span class="line">            <span class="token keyword">const</span> v1 <span class="token operator">=</span> <span class="token function">cloneDeep</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> map<span class="token punctuation">)</span></span>
+<span class="line">            target<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>v1<span class="token punctuation">)</span></span>
+<span class="line">        <span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line">    <span class="token comment">// Array</span></span>
+<span class="line">    <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token keyword">instanceof</span> <span class="token class-name">Array</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        target <span class="token operator">=</span> obj<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token function">cloneDeep</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> map<span class="token punctuation">)</span><span class="token punctuation">)</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line">    <span class="token comment">// Object</span></span>
+<span class="line">    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> key <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">        <span class="token keyword">const</span> val <span class="token operator">=</span> obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span></span>
+<span class="line">        <span class="token keyword">const</span> val1 <span class="token operator">=</span> <span class="token function">cloneDeep</span><span class="token punctuation">(</span>val<span class="token punctuation">,</span> map<span class="token punctuation">)</span></span>
+<span class="line">        target<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> val1</span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line">    <span class="token keyword">return</span> target</span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></template>
+
+

@@ -1,0 +1,113 @@
+<template><div><h2 id="andt-的介绍" tabindex="-1"><a class="header-anchor" href="#andt-的介绍"><span>andt 的介绍</span></a></h2>
+<p>Ant Design 是基于 React 实现，开发和服务于企业级后台产品。</p>
+<h3 id="支持环境" tabindex="-1"><a class="header-anchor" href="#支持环境"><span>支持环境</span></a></h3>
+<ul>
+<li>
+<p>现代浏览器和 IE9 及以上（需要 polyfills）。</p>
+</li>
+<li>
+<p>支持服务端渲染。</p>
+</li>
+<li>
+<p><a href="https://electronjs.org/" target="_blank" rel="noopener noreferrer">Electron</a></p>
+</li>
+</ul>
+<p>Electron（原名为Atom Shell）是GitHub开发的一个开源框架。 它允许使用Node.js（作为后端）和Chromium（作为前端）完成桌面GUI应用程序的开发。</p>
+<p>很多客户端软件都是基于 Electron 开发的。比如 VS Code。我们打开 VS Code 菜单栏的 “帮助 --&gt; 切换开发人员工具”，就会看到类似于 chrome的调试工具。</p>
+<h3 id="相关链接" tabindex="-1"><a class="header-anchor" href="#相关链接"><span>相关链接</span></a></h3>
+<ul>
+<li>官方文档：<a href="https://ant.design/docs/react/introduce-cn" target="_blank" rel="noopener noreferrer">https://ant.design/docs/react/introduce-cn</a></li>
+</ul>
+<h2 id="andt-的使用" tabindex="-1"><a class="header-anchor" href="#andt-的使用"><span>andt 的使用</span></a></h2>
+<h3 id="环境安装" tabindex="-1"><a class="header-anchor" href="#环境安装"><span>环境安装</span></a></h3>
+<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">npm install antd --save</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h3 id="代码示例" tabindex="-1"><a class="header-anchor" href="#代码示例"><span>代码示例</span></a></h3>
+<p>我们需要什么组件，就导入该组件即可。</p>
+<p>（1）index.html:</p>
+<div class="language-html line-numbers-mode" data-highlighter="prismjs" data-ext="html" data-title="html"><pre v-pre><code><span class="line"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<span class="line"></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ie=edge<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span></span>
+<span class="line"></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token comment">&lt;!-- 容器，通过 React 渲染得到的 虚拟DOM，会呈现到这个位置 --></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></span>
+<span class="line"></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>（2）main.js:</p>
+<div class="language-java line-numbers-mode" data-highlighter="prismjs" data-ext="java" data-title="java"><pre v-pre><code><span class="line"><span class="token comment">// JS打包入口文件</span></span>
+<span class="line"><span class="token comment">// 1. 导入包</span></span>
+<span class="line"><span class="token keyword">import</span> <span class="token class-name">React</span> from <span class="token string">"react"</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token keyword">import</span> <span class="token class-name">ReactDOM</span> from <span class="token string">"react-dom"</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">import</span> <span class="token class-name">MyComponent</span> from <span class="token string">"./components/MyComponent.jsx"</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">// 使用 render 函数渲染 虚拟DOM</span></span>
+<span class="line"><span class="token class-name">ReactDOM</span><span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">MyComponent</span><span class="token punctuation">></span></span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token class-name">MyComponent</span><span class="token operator">></span><span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"app"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>(3)MyComponent.jsx:</p>
+<div class="language-java line-numbers-mode" data-highlighter="prismjs" data-ext="java" data-title="java"><pre v-pre><code><span class="line"><span class="token keyword">import</span> <span class="token class-name">React</span> from <span class="token string">"react"</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">// 导入 日期选择组件</span></span>
+<span class="line"><span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token class-name">DatePicker</span> <span class="token punctuation">}</span> from <span class="token string">"antd"</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">export <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token function">constructor</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line">  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">return</span> <span class="token punctuation">(</span></span>
+<span class="line">      <span class="token generics"><span class="token punctuation">&lt;</span>div<span class="token punctuation">></span></span></span>
+<span class="line">        <span class="token generics"><span class="token punctuation">&lt;</span>h3<span class="token punctuation">></span></span>在组件中引入 andt<span class="token operator">&lt;</span><span class="token operator">/</span>h3<span class="token operator">></span></span>
+<span class="line"></span>
+<span class="line">        <span class="token operator">&lt;</span><span class="token class-name">DatePicker</span> <span class="token operator">/</span><span class="token operator">></span></span>
+<span class="line">      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span></span>
+<span class="line">    <span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token punctuation">}</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>代码运行效果：</p>
+<p>20190217_1500.png</p>
+<h2 id="antd组件" tabindex="-1"><a class="header-anchor" href="#antd组件"><span>AntD组件</span></a></h2>
+<h3 id="表格" tabindex="-1"><a class="header-anchor" href="#表格"><span>表格</span></a></h3>
+<p><code v-pre>pagination</code>属性可以用来分页。</p>
+<h3 id="loading框" tabindex="-1"><a class="header-anchor" href="#loading框"><span>loading框</span></a></h3>
+<p>需求：在数据显示之前，展示 loading；在数据显示之后，关闭loading。</p>
+<h2 id="相关问题的链接" tabindex="-1"><a class="header-anchor" href="#相关问题的链接"><span>相关问题的链接</span></a></h2>
+<h3 id="antd-pro-跳转到详情页-携带参数" tabindex="-1"><a class="header-anchor" href="#antd-pro-跳转到详情页-携带参数"><span>AntD pro，跳转到详情页，携带参数</span></a></h3>
+<ul>
+<li>
+<p><a href="https://blog.csdn.net/u011613356/article/details/81505883" target="_blank" rel="noopener noreferrer">ant design列表页，转跳到详情页，携带参数</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/ws995339251/article/details/86771701" target="_blank" rel="noopener noreferrer">ant design pro商品页带参数转到详情页</a></p>
+</li>
+</ul>
+<h3 id="antd-pro-必填项前面-显示星号" tabindex="-1"><a class="header-anchor" href="#antd-pro-必填项前面-显示星号"><span>AntD pro ，必填项前面，显示星号</span></a></h3>
+<ul>
+<li><a href="https://github.com/ant-design/ant-design-pro/issues/2044" target="_blank" rel="noopener noreferrer">表单必填项label上的红色*号是怎么出现的</a></li>
+</ul>
+<h3 id="其他问题" tabindex="-1"><a class="header-anchor" href="#其他问题"><span>其他问题</span></a></h3>
+<ul>
+<li>
+<p>面包屑层级显示问题：<a href="https://github.com/ant-design/ant-design-pro/issues/1584" target="_blank" rel="noopener noreferrer">https://github.com/ant-design/ant-design-pro/issues/1584</a></p>
+</li>
+<li>
+<p>from验证input框只能输入数字：<a href="https://blog.csdn.net/zr15829039341/article/details/82745239" target="_blank" rel="noopener noreferrer">https://blog.csdn.net/zr15829039341/article/details/82745239</a></p>
+</li>
+</ul>
+</div></template>
+
+

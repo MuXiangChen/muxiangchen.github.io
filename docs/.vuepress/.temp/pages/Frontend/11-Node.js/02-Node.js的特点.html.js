@@ -1,0 +1,3 @@
+import comp from "/Users/muxiangchen/Desktop/muxiangchen.github.io/docs/.vuepress/.temp/pages/Frontend/11-Node.js/02-Node.js的特点.html.vue"
+const data = JSON.parse("{\"path\":\"/Frontend/11-Node.js/02-Node.js%E7%9A%84%E7%89%B9%E7%82%B9.html\",\"title\":\"02-Node.js的特点\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"02-Node.js的特点\",\"publish\":true},\"headers\":[{\"level\":2,\"title\":\"Node.js 的特点\",\"slug\":\"node-js-的特点\",\"link\":\"#node-js-的特点\",\"children\":[]},{\"level\":2,\"title\":\"使用 Node.js 时的劣势\",\"slug\":\"使用-node-js-时的劣势\",\"link\":\"#使用-node-js-时的劣势\",\"children\":[]}],\"git\":{},\"filePathRelative\":\"Frontend/11-Node.js/02-Node.js的特点.md\"}")
+export { comp, data }

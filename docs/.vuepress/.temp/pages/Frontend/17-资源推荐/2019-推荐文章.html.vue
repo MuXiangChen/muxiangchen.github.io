@@ -1,0 +1,21 @@
+<template><div><h2 id="前言" tabindex="-1"><a class="header-anchor" href="#前言"><span>前言</span></a></h2>
+<p>记录平时遇到的优质技术文章，按时间先后排序。</p>
+<h2 id="内容" tabindex="-1"><a class="header-anchor" href="#内容"><span>内容</span></a></h2>
+<h3 id="_2019-05-11" tabindex="-1"><a class="header-anchor" href="#_2019-05-11"><span>2019-05-11</span></a></h3>
+<ul>
+<li>《<a href="https://www.cnblogs.com/shwee/p/9060226.html#dingzhi12" target="_blank" rel="noopener noreferrer">博客园美化教程大集合----极致个性化你的专属博客（超详细，看这篇就够了）</a>》</li>
+</ul>
+<p>网上写图文教程的人，还真是贴心。</p>
+<h3 id="_2019-09-06" tabindex="-1"><a class="header-anchor" href="#_2019-09-06"><span>2019-09-06</span></a></h3>
+<ul>
+<li><a href="https://www.yuque.com/sxc/front/kvokg4" target="_blank" rel="noopener noreferrer">https://www.yuque.com/sxc/front/kvokg4</a></li>
+</ul>
+<p>作者在语雀上的系列文章，都值得一看。</p>
+<h3 id="_2019-10-05" tabindex="-1"><a class="header-anchor" href="#_2019-10-05"><span>2019-10-05</span></a></h3>
+<ul>
+<li><a href="https://www.twblogs.net/a/5d400329bd9eee51fbf962b2" target="_blank" rel="noopener noreferrer">前端学习网站和资源推荐</a></li>
+</ul>
+<p>作者整理的一些基础性的学习资源，还可以。</p>
+</div></template>
+
+

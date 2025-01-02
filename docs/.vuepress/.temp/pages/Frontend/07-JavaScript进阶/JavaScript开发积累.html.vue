@@ -1,0 +1,78 @@
+<template><div><h3 id="方法的注释" tabindex="-1"><a class="header-anchor" href="#方法的注释"><span>方法的注释</span></a></h3>
+<p>方法写完之后（注意，一定要先写完整），我们在方法的前面输入<code v-pre>/**</code>，然后回车，会发现，注释的格式会自动补齐。</p>
+<p>比如：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token doc-comment comment">/**</span>
+<span class="line"> * 功能：给定元素查找他的第一个元素子节点，并返回</span>
+<span class="line"> * <span class="token keyword">@param</span> <span class="token parameter">ele</span></span>
+<span class="line"> * <span class="token keyword">@returns</span> <span class="token class-name"><span class="token punctuation">{</span>Element<span class="token operator">|</span><span class="token operator">*</span><span class="token operator">|</span>Node<span class="token punctuation">}</span></span></span>
+<span class="line"> */</span></span>
+<span class="line"><span class="token keyword">function</span> <span class="token function">getFirstNode</span><span class="token punctuation">(</span><span class="token parameter">ele</span><span class="token punctuation">)</span><span class="token punctuation">{</span></span>
+<span class="line">    <span class="token keyword">var</span> node <span class="token operator">=</span> ele<span class="token punctuation">.</span>firstElementChild <span class="token operator">||</span> ele<span class="token punctuation">.</span>firstChild<span class="token punctuation">;</span></span>
+<span class="line">    <span class="token keyword">return</span> node<span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="断点调试" tabindex="-1"><a class="header-anchor" href="#断点调试"><span>断点调试</span></a></h3>
+<p>（1）先让程序运行一遍。</p>
+<p>（2）f12，弹出代码调试工具</p>
+<p>（3）打断点：</p>
+<p><img src="http://img.smyhvae.com/20180124_2035.png" alt=""></p>
+<p>然后刷新页面。</p>
+<p>（4）一步步调试，每点击一次，执行一步：</p>
+<p><img src="http://img.smyhvae.com/20180124_2036.png" alt=""></p>
+<p>（5）监视变量：</p>
+<p>当然，也可以添加变量或者表达式到监视窗口。操作如下：</p>
+<p><img src="http://img.smyhvae.com/20180124_2037.png" alt=""></p>
+<p>上图中，选择变量或表达式，然后右键add to watch.</p>
+<p>然后监视窗口：</p>
+<p><img src="http://img.smyhvae.com/20180124_2038.png" alt=""></p>
+<h3 id="_2019-05-20-给数组、对象赋值" tabindex="-1"><a class="header-anchor" href="#_2019-05-20-给数组、对象赋值"><span>2019-05-20-给数组、对象赋值</span></a></h3>
+<p><strong>数组赋值的正确写法</strong>：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">this</span><span class="token punctuation">.</span>todayList<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">...</span>dataList<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p><strong>对象赋值的正确写法</strong>：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line">Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>obj2<span class="token punctuation">,</span> obj1<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>上方代码中，是将<code v-pre>obj1</code> 的值追加到<code v-pre>obj2</code>中。如果对象里的属性名相同，会被覆盖。</p>
+<h3 id="_2019-11-25-在新的窗口中打开url" tabindex="-1"><a class="header-anchor" href="#_2019-11-25-在新的窗口中打开url"><span>2019-11-25-在新的窗口中打开url</span></a></h3>
+<p>在原来的窗体中跳转到新页面：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line">window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href<span class="token operator">=</span><span class="token string">"要跳转的新页面"</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>在新窗体中打开新页面：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line">window<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">'你所要跳转的新页面'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h3 id="_2019-12-10-javascript-新特性-optional-chaining-可选链式调用-语法" tabindex="-1"><a class="header-anchor" href="#_2019-12-10-javascript-新特性-optional-chaining-可选链式调用-语法"><span>2019-12-10-JavaScript 新特性：Optional Chaining（可选链式调用）语法</span></a></h3>
+<p>以往写代码，我们一般都这么写：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">if</span> <span class="token punctuation">(</span>result <span class="token operator">&amp;&amp;</span> result<span class="token punctuation">.</span>user <span class="token operator">&amp;&amp;</span> result<span class="token punctuation">.</span>user<span class="token punctuation">.</span>name <span class="token operator">&amp;&amp;</span> result<span class="token punctuation">.</span>user<span class="token punctuation">.</span>name<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'qianguyihao'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>有了 Optinal Chain 语法之后，就简洁很多了，可以这么写：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token operator">?.</span>user<span class="token operator">?.</span>name<span class="token operator">?.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'qianguyihao'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>参考链接：</p>
+<ul>
+<li>
+<p>了解 JavaScript 新特性：Optional Chaining：<a href="https://www.infoq.cn/article/2JDORgXrU6VmZ7jlyuFD" target="_blank" rel="noopener noreferrer">https://www.infoq.cn/article/2JDORgXrU6VmZ7jlyuFD</a></p>
+</li>
+<li>
+<p>原文链接： https://v8.dev/features/optional-chaining</p>
+</li>
+</ul>
+<h3 id="_2020-04-28-判断字符串的包含关系" tabindex="-1"><a class="header-anchor" href="#_2020-04-28-判断字符串的包含关系"><span>2020-04-28-判断字符串的包含关系</span></a></h3>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'qiangu2'</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token keyword">if</span> <span class="token punctuation">(</span>str <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token string">'qiangu1'</span> <span class="token operator">||</span> <span class="token string">'qiangu2'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'qianguyihao'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>注意，上面的代码，根本就不会走 console.log 语句，因为if里面的内容是false。</p>
+<p>如果我们要判断变量 <code v-pre>str</code> 是否在 <code v-pre>qiangu1、qiangu2</code>的合集里，我们应该这样写：</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="prismjs" data-ext="js" data-title="js"><pre v-pre><code><span class="line"><span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'qiangu2'</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token keyword">if</span> <span class="token punctuation">(</span>str <span class="token operator">==</span> <span class="token string">'qiangu1'</span> <span class="token operator">||</span> str <span class="token operator">==</span> <span class="token string">'qiangu2'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'qianguyihao'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></template>
+
+

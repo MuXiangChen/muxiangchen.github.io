@@ -1,0 +1,3 @@
+import comp from "/Users/muxiangchen/Desktop/muxiangchen.github.io/docs/.vuepress/.temp/pages/Frontend/12-Vue基础/Vue.js在开发中的常见写法积累.html.vue"
+const data = JSON.parse("{\"path\":\"/Frontend/12-Vue%E5%9F%BA%E7%A1%80/Vue.js%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E5%86%99%E6%B3%95%E7%A7%AF%E7%B4%AF.html\",\"title\":\"01-数据库的基础知识\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"01-数据库的基础知识\",\"publish\":false},\"headers\":[{\"level\":3,\"title\":\"001、对象的赋值\",\"slug\":\"_001、对象的赋值\",\"link\":\"#_001、对象的赋值\",\"children\":[]}],\"git\":{},\"filePathRelative\":\"Frontend/12-Vue基础/Vue.js在开发中的常见写法积累.md\"}")
+export { comp, data }

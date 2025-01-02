@@ -1,0 +1,3 @@
+import comp from "/Users/muxiangchen/Desktop/muxiangchen.github.io/docs/.vuepress/.temp/pages/Frontend/04-JavaScript基础/31-对象的高级操作（待更新）.html.vue"
+const data = JSON.parse("{\"path\":\"/Frontend/04-JavaScript%E5%9F%BA%E7%A1%80/31-%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C%EF%BC%88%E5%BE%85%E6%9B%B4%E6%96%B0%EF%BC%89.html\",\"title\":\"31_1-对象的高级操作（待更新）\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"31_1-对象的高级操作（待更新）\",\"publish\":false},\"headers\":[{\"level\":2,\"title\":\"Object.freeze() 冻结对象\",\"slug\":\"object-freeze-冻结对象\",\"link\":\"#object-freeze-冻结对象\",\"children\":[]}],\"git\":{},\"filePathRelative\":\"Frontend/04-JavaScript基础/31-对象的高级操作（待更新）.md\"}")
+export { comp, data }
